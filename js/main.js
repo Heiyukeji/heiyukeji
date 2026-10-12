@@ -473,16 +473,19 @@ $("#year").textContent = new Date().getFullYear();
 
   /* 各弹层内容：模板照原站 TABS 逐条对应（数据取自本文件顶部 const） */
   function content(k) {
-    if (k === "node") return hd("免费节点订阅", "每天更新") + `
-      <p class="tl-lead">没有网络的时候先用它顶上：复制订阅链接，导入客户端就能用。</p>
-      <div class="tl-sub"><code>${esc(FREENODE.url)}</code><button class="tl-b main" data-copy="${esc(FREENODE.url)}" data-what="订阅链接">一键复制</button>
-        ${FREENODE.openUrl ? `<a class="tl-b" href="${esc(FREENODE.openUrl)}" target="_blank" rel="noopener">${esc(FREENODE.openLabel || "在浏览器打开")} ↗</a>` : ""}</div>
-      <ol class="tl-steps">
-        <li><b>复制订阅</b>点上面「一键复制」。</li>
-        <li><b>导入客户端</b>V2rayN / v2rayNG / 小火箭里选「从剪贴板导入订阅」。还没装？<button type="button" data-go="dl">去软件下载</button></li>
-        <li><b>连不上就刷新</b>节点每天换，在客户端里更新一下订阅再试。</li>
-      </ol>
-      <div class="tl-nq"><div class="out" id="tlNodeQR">二维码生成中…</div><div><b>手机扫码拿链接</b><span>电脑上看这页时，用手机扫这个码就能拿到订阅链接，不用在两台设备之间传文字；拿到后在手机客户端里添加订阅。</span></div></div>`;
+        if (k === "node") return hd("免费网络", "安卓 / iOS") + `
+      <div class="tl-grid" style="grid-template-columns:1fr 1fr;gap:16px">
+        <div style="padding:20px;border-radius:14px;background:rgba(13,19,48,.7);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)">
+          <div style="font-size:28px;margin-bottom:8px">📱</div>
+          <h4 style="margin:0 0 8px;font-size:15px;color:#e4e9ff">安卓系统</h4>
+          <p style="margin:0;font-size:13.5px;line-height:1.85;color:#c9d1ee">1：下载迅雷<br>2：打开搜索：黑彧wj251995<br>3：每个文件夹都有加速，长期更新</p>
+        </div>
+        <div style="padding:20px;border-radius:14px;background:rgba(13,19,48,.7);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)">
+          <div style="font-size:28px;margin-bottom:8px">🍎</div>
+          <h4 style="margin:0 0 8px;font-size:15px;color:#e4e9ff">iOS系统</h4>
+          <p style="margin:0;font-size:13.5px;line-height:1.85;color:#c9d1ee">需要海外ID下载，本站有免费ID链接<br>1：火种VPN<br>2：1.1.1.1<br>3：快喵<br>4：nthlink</p>
+        </div>
+      </div>`;
     if (k === "cmd") return hd("一键安装命令", `${CMDS.length} 个面板脚本`) + `
       <p class="tl-lead">连上 VPS 后粘贴运行就能装好面板。还不会连 VPS？先装 <button type="button" class="tl-b" style="height:26px;padding:0 10px" data-go="dl">FinalShell</button></p>
       <div class="tl-grid">${CMDS.map((c, i) => `<div class="tl-cmd"><h4>${esc(c.name)}${c.badge ? `<small>${esc(c.badge)}</small>` : ""}</h4><p>${c.variant ? `<em class="vr">${esc(c.variant)}</em><br>` : ""}${esc(c.desc)}${c.note ? `<br><span style="font-size:12px;color:#7f8ab0">${esc(c.note)}</span>` : ""}</p>
