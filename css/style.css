@@ -149,8 +149,7 @@ button{font:inherit}
   transform:rotate(-4deg);transform-origin:left top}
 .script b{display:block;font-family:"STXingkai","华文行楷","Ma Shan Zheng","KaiTi","楷体",cursive;
   font-weight:400;font-size:clamp(28px,2.6vw,38px);letter-spacing:.08em;line-height:1.2;
-  background:linear-gradient(90deg,#fff,#cfd8ff 60%,#a99bff);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
+  color:#fbd34d;
   filter:drop-shadow(0 0 14px rgba(140,150,255,.35))}
 .script span{display:block;margin:6px 0 0 14%;font-size:14px;color:#b8c2e6;letter-spacing:.06em}
 
