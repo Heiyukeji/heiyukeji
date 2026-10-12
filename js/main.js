@@ -1,4 +1,4 @@
-/* ═══ 三月导航 · 交互脚本 ═══
+/* ═══ 黑彧导航 · 交互脚本 ═══
    职责：左右侧翼屏（常用工具 / 常用链接）、三栏面板渲染、
          卡片跟手倾斜与光斑、地图流光连线、悬浮音乐条。 */
 
@@ -8,7 +8,7 @@ const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g,
 
 /* ── 常用工具：8 项，条目与原站一致（点击弹层看详情；doc 为外链直开）
    lg = 真实产品 logo（照原站：节点 V2Ray / 命令 3X-UI / 检测 IPinfo / 二维码 小火箭 /
-        下载 v2rayN / 测速 Speedtest / 域名优选 Xray / 文档 三月站标） ── */
+        下载 v2rayN / 测速 Speedtest / 域名优选 Xray / 文档 黑彧站标） ── */
 const TOOLS = [
   { k: "node", t: "免费节点", sub: "每天更新的 V2ray 订阅", c: "255,196,92", lg: "real/v2ray.png" },
   { k: "cmd", t: "一键命令", sub: "7 个面板，粘贴就装", c: "157,124,255", lg: "real/3xui.png" },
@@ -23,7 +23,7 @@ const TOOLS = [
 /* ── 站长社群（顶栏「站长社群」弹层；以下为示例数据，部署前换成你自己的入口） ── */
 const SQ = {
   tg: "https://t.me/your_group",        // Telegram 群链接
-  wx: "三月导航 · 站长社群（示例二维码）", // 微信群二维码内容
+  wx: "黑彧导航 · 站长社群（示例二维码）", // 微信群二维码内容
   mail: "hi@example.com",               // 联系邮箱
   wa: "https://wa.me/8613800000000",     // WhatsApp 二维码内容（号码或 wa.me 链接）
 };
