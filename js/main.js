@@ -24,7 +24,7 @@ const TOOLS = [
 const SQ = {
   tg: "https://t.me/heiyukefubot",        // Telegram 机器人链接
   mail: "hi@example.com",               // 24小时网页客服
-  wa: "https://wa.me/8613800000000",     // WhatsApp 二维码内容（号码或 wa.me 链接）
+  wa: "https://wa.me/8613800000000",     // 客服QQ
 };
 
 /* ── 弹层内容数据（照原站 tools.js / nav-data.js 原样搬运） ── */
@@ -523,7 +523,7 @@ $("#year").textContent = new Date().getFullYear();
           <div class="sq-bd"><p>适用于商务合作或大额订单咨询。请发送邮件至下方地址，我们会在 24 小时内回复。</p></div>
           <div class="sq-info">${esc(SQ.mail)}</div></div>
         <div class="sq-card full"><div class="sq-hd"><span class="sq-ic">❖</span><h4>说明</h4></div>
-          <div class="sq-bd"><p>以上均为示例数据：Telegram 群链接、WhatsApp 二维码、邮箱都在 js/main.js 顶部的 SQ 里，替换成你自己的社群入口即可上线。</p></div></div>
+          <div class="sq-bd"><p>点右下角网页客服咨询</p></div></div>
       </div>`;
     return "";
   }
