@@ -10,7 +10,7 @@ const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g,
    lg = 真实产品 logo（照原站：节点 karing / 命令 3X-UI / 检测 IPinfo / 二维码 小火箭 /
         下载 karing / 测速 Speedtest / 域名优选 Xray / 文档 黑彧站标） ── */
 const TOOLS = [
-  { k: "node", t: "免费节点", sub: "每天更新的 V2ray 订阅", c: "255,196,92", lg: "real/v2ray.png" },
+  { k: "node", t: "免费节点", sub: "长期更新免费vpn", c: "255,196,92", lg: "real/v2ray.png" },
   { k: "cmd", t: "一键命令", sub: "7 个面板，粘贴就装", c: "157,124,255", lg: "real/3xui.png" },
   { k: "check", t: "环境与 IP 检测", sub: "纯净度、泄漏、路由", c: "52,211,153", lg: "tools/ipinfo.io.png" },
   { k: "qr", t: "SOCKS5 转二维码", sub: "住宅 IP 扫码进小火箭", c: "244,114,182", lg: "real/shadowrocket.png" },
