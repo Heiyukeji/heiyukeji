@@ -563,7 +563,8 @@ $("#year").textContent = new Date().getFullYear();
     sheet.querySelector(".st").textContent = h ? h.querySelector("h3").textContent : t.t;
     sheet.querySelector(".sd").textContent = h && h.querySelector("span") ? h.querySelector("span").textContent : "";
     h && h.remove();
-    sheet.style.setProperty("--ac", t.c);
+        sheet.style.setProperty("--ac", t.c);
+    sheet.classList.toggle("wide", k === "sq"); // 站长社群三卡并排，弹层加宽
     if (!sheet.classList.contains("open")) { bd.classList.add("open"); sheet.classList.add("open"); document.body.style.overflow = "hidden"; }
     sheet.scrollTop = 0; bind(); sheet.querySelector(".sheet-x").focus();
   }
@@ -581,7 +582,6 @@ $("#year").textContent = new Date().getFullYear();
     }
     const si = body.querySelector("#tlSocks"); if (si) { si.oninput = () => socks(si.value.trim()); si.focus(); }
     const nq = body.querySelector("#tlNodeQR"); if (nq && FREENODE.url) qr(nq, FREENODE.url, 100);
-    const sqq = body.querySelector("#sqQR"); if (sqq) qr(sqq, SQ.wa, 122);
   }
   document.addEventListener("click", e => {
     const b = e.target.closest("button[data-k]");
