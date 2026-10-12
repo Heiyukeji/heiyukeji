@@ -427,6 +427,7 @@ button.wing-it{width:100%;border:0;background:none;font:inherit;color:inherit;te
   transition:opacity .22s,transform .22s}
 .sheet.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
 .sheet-h{position:sticky;top:0;z-index:1;background:#0a0f1e;
+.sheet.wide{width:min(960px,calc(100% - 40px))}
   padding:22px 24px 14px;border-bottom:1px solid rgba(150,170,230,.13)}
 .sheet-h b{display:block;font-size:21px;font-weight:800}
 .sheet-h p{margin:6px 0 0;font-size:13.5px;color:#97a3c5;line-height:1.75}
@@ -454,7 +455,7 @@ button.wing-it{width:100%;border:0;background:none;font:inherit;color:inherit;te
 .tl-nq{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center;margin-top:12px;padding:14px;border-radius:12px;background:rgba(13,19,48,.7);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
 .tl-nq .out{width:112px;height:112px;border-radius:8px;background:#fff;display:grid;place-items:center;color:#667;font-size:11px;padding:6px}
 /* 站长社群弹层（仿原站联系站长页：青色主光 + 紫色辅光、玻璃卡片） */
-.sq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:18px}
+.sq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:18px;align-items:stretch}
 .sq-card{background:rgba(10,15,20,.75);border:1px solid rgba(0,243,255,.3);border-radius:12px;padding:22px;
   display:flex;flex-direction:column;position:relative;overflow:hidden;transition:.3s}
 .sq-card:hover{transform:translateY(-5px);border-color:#00f3ff;box-shadow:0 0 30px rgba(0,243,255,.2);background:rgba(10,25,35,.9)}
@@ -469,27 +470,27 @@ button.wing-it{width:100%;border:0;background:none;font:inherit;color:inherit;te
 .sq-join:hover{background:#00f3ff;color:#000;box-shadow:0 0 20px #00f3ff}
 .sq-info{background:rgba(0,0,0,.5);border:1px dashed #555;color:#ddd;padding:12px;text-align:center;
   font-family:Consolas,monospace;border-radius:6px;user-select:all;font-size:13.5px}
-.sq-qrbox{background:#fff;padding:5px;border-radius:8px;max-width:150px;margin:0 auto;border:2px solid #00f3ff}
-.sq-qrbox img,.sq-qrbox canvas,.sq-qrbox table{width:100%!important;height:auto!important;display:block;border-collapse:collapse}
-.sq-card.full{grid-column:1/-1;background:rgba(5,10,15,.85);border-color:rgba(188,19,254,.4);text-align:center;align-items:center}
-.sq-card.full .sq-hd{justify-content:center;margin-bottom:10px}
-.sq-card.full .sq-ic,.sq-card.full .sq-hd h4{color:#bc13fe;text-shadow:0 0 10px rgba(188,19,254,.5)}
-.sq-card.full .sq-bd{max-width:640px;margin-bottom:0}
-.tl-nq b{display:block;font-size:14px;color:#e6eaff;margin-bottom:3px}.tl-nq span{font-size:13px;color:#97a3c5;line-height:1.7}
-.tl-lead{margin:0 0 16px;color:#aab4d6;font-size:14px;line-height:1.8}
-.tl-sub{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 14px;border-radius:12px;background:rgba(5,8,20,.6);border:1px solid rgba(150,170,230,.2)}
-.tl-sub code{flex:1;min-width:0;font-family:Consolas,monospace;font-size:13.5px;color:#9fe3ff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.tl-b{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 15px;border-radius:999px;border:1px solid rgba(160,180,255,.4);background:rgba(10,14,32,.6);color:#e4e9ff;font:inherit;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;text-decoration:none}
-.tl-b:hover{border-color:rgba(157,124,255,.8)}
-.tl-b.main{border:0;background:linear-gradient(100deg,#8a6bff,#5b8cff);color:#fff}
-.tl-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.tl-cmd{border-radius:14px;padding:14px 16px;background:rgba(13,19,48,.7);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
-.tl-cmd h4{margin:0 0 3px;font-size:15.5px;display:flex;align-items:center;gap:8px}
-.tl-cmd h4 small{font-size:11px;font-weight:600;padding:1px 7px;border-radius:5px;background:rgba(157,124,255,.18);color:#c4b5ff}
-.tl-cmd p{margin:0 0 10px;font-size:13px;color:#97a3c5}
-.tl-cmd .vr{font-style:normal;font-size:12px;font-weight:600;color:#c4b5ff}
-.tl-code{position:relative;border-radius:10px;background:#05070f;border:1px solid rgba(150,170,230,.16);padding:10px 12px;font-family:Consolas,monospace;font-size:12.5px;
-  color:#c9f2ff;white-space:pre-wrap;word-break:break-all;max-height:120px;overflow:auto}
+/* QQ 客服：账号行（点「复制」入剪贴板） */
+.sq-qrow{display:flex;align-items:center;gap:10px;padding:11px 12px;margin-bottom:10px;border-radius:8px;
+  background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.09);transition:.25s}
+.sq-qrow:last-child{margin-bottom:0}
+.sq-qrow:hover{border-color:rgba(0,243,255,.45);background:rgba(0,243,255,.06)}
+.sq-qtag{flex:none;font-size:11.5px;padding:2px 8px;border-radius:999px;background:rgba(0,243,255,.12);
+  border:1px solid rgba(0,243,255,.4);color:#00f3ff}
+.sq-qtag.sp{background:rgba(188,19,254,.12);border-color:rgba(188,19,254,.45);color:#d980ff}
+.sq-qrow code{flex:1;min-width:0;font-family:Consolas,monospace;font-size:14.5px;letter-spacing:1px;color:#fff;user-select:all}
+.sq-cp{flex:none;height:28px;padding:0 12px;border-radius:999px;border:1px solid rgba(0,243,255,.5);
+  background:rgba(0,243,255,.08);color:#00f3ff;font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;transition:.25s}
+.sq-cp:hover{background:#00f3ff;color:#04121a;box-shadow:0 0 14px rgba(0,243,255,.6)}
+/* 24 小时网页客服：点击直接打开在线客服（跳转 tawk.to/hykf） */
+.sq-live{display:flex;align-items:center;gap:8px;padding:12px;border-radius:8px;
+  background:rgba(0,0,0,.45);border:1px dashed rgba(0,243,255,.35);color:#9fe3ff;font-size:13px;
+  text-decoration:none;cursor:pointer;transition:.25s}
+.sq-live:hover{background:rgba(0,243,255,.08);border-color:#00f3ff;color:#fff;box-shadow:0 0 18px rgba(0,243,255,.35)}
+.sq-live .sq-dot{width:8px;height:8px;border-radius:50%;background:#39ff88;box-shadow:0 0 10px #39ff88;animation:sqPulse 1.6s infinite}
+.sq-live .sq-arrow{margin-left:auto;font-size:17px;color:#00f3ff;animation:sqDown 1.6s infinite}
+@keyframes sqPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.78)}}
+@keyframes sqDown{0%,100%{transform:translate(0,0);opacity:1}50%{transform:translate(4px,-4px);opacity:.45}}
 .tl-row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
 .tl-secs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .tl-sec{position:relative;padding:16px;border-radius:16px;overflow:hidden;
