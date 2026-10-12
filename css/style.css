@@ -147,7 +147,7 @@ button{font:inherit}
 .theater{position:relative;min-height:560px}
 .script{position:absolute;z-index:6;top:4px;left:4%;right:0;pointer-events:none;
   transform:rotate(-4deg);transform-origin:left top}
-.script b{display:block;font-family:"STXingkai","华文行楷","Ma Shan Zheng","KaiTi","楷体",cursive;
+.script b{display:block;font-family:system-ui,"Microsoft YaHei","微软雅黑",sans-serif;
   font-weight:400;font-size:clamp(28px,2.6vw,38px);letter-spacing:.08em;line-height:1.2;
   color:#fbd34d;
   filter:drop-shadow(0 0 14px rgba(251,211,77,.35))}
