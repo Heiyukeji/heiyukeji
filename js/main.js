@@ -36,15 +36,15 @@ const FREENODE = {
 };
 
 const CMDS = [
-  { name: "Marzban 面板", badge: "Xray · Panel", desc: "多用户多协议管理面板，Docker 部署，自带订阅",
-    github: "https://github.com/Gozargah/Marzban",
+  { name: "3X-UI 面板（不带域名，随机端口）", badge: "Xray · Panel", desc: "Xray 可视化管理面板，支持多种协议",
+    github: "https://github.com/Heiyukeji/3x-ui",
     cmd: 'sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/master/marzban.sh)" @ install' },
-  { name: "X-UI 面板", badge: "Xray · Panel", desc: "轻量 Xray 面板，英文界面，占用低",
-    github: "https://github.com/alireza0/x-ui",
-    cmd: "bash <(curl -Ls https://raw.githubusercontent.com/alireza0/x-ui/master/install.sh)" },
-  { name: "极光面板", badge: "Aurora · Panel", desc: "Aurora Admin Panel，多节点可视化管理面板",
-    cmd: "bash <(curl -fsSL https://raw.githubusercontent.com/Aurora-Admin-Panel/deploy/main/install.sh)" },
-  { name: "3X-UI 面板", badge: "Xray · Panel", desc: "Xray 可视化管理面板，支持多种协议",
+  { name: "3X-UI 面板（需要域名， panel.example.com 替换为你自己的域名）", badge: "Xray · Panel", desc: "Xray 可视化管理面板，支持多种协议",
+    github: "https://github.com/Heiyukeji/3x-ui",
+    cmd: "XUI_DOMAIN=panel.example.com bash <(curl -Ls https://raw.githubusercontent.com/Heiyukeji/3x-ui/main/install.sh)" },
+  { name: "一键搭建面板", badge: "Aurora · Panel", desc: "Aurora Admin Panel，多协议共存，一键搭建，无需配置",
+    cmd: "bash <(curl -fsSL https://www.geto.im/oneclick/install.sh)" },
+  { name: "TMS 面板", badge: "Xray · Panel", desc: "流量转发管理面板，多机集中监控与调度",
     github: "https://github.com/MHSanaei/3x-ui",
     cmd: "bash <(curl -Ls https://raw.githubusercontent.com/MHSanaei/3x-ui/master/install.sh)" },
   { name: "S-UI 面板", badge: "Sing-box · Panel", desc: "Sing-box 可视化管理面板，支持多协议节点",
