@@ -22,11 +22,11 @@ const TOOLS = [
 
 /* ── 站长社群（顶栏「站长社群」弹层；以下为示例数据，部署前换成你自己的入口） ── */
 const SQ = {
-  tg: "https://t.me/heiyukefubot",        // Telegram 机器人链接
-  mail: "hi@example.com",               // 24小时网页客服
-  wa: "https://wa.me/8613800000000",     // 客服QQ
+  tg: "https://t.me/heiyukefubot",      // Telegram 客服机器人
+  qq: "928533857",                      // QQ 客服
+  qq2: "319070682",                     // QQ 客服（备用）
+  web: "https://tawk.to/hykf",          // 24 小时网页客服
 };
-
 /* ── 弹层内容数据（照原站 tools.js / nav-data.js 原样搬运） ── */
 const FREENODE = {
   url: "https://example.com/free-nodes.txt",  // 示例订阅地址：部署前换成你自己的
@@ -512,20 +512,19 @@ $("#year").textContent = new Date().getFullYear();
       <div class="tl-row"><button class="tl-b main" id="tlRdCopy">复制命令</button><button class="tl-b" id="tlRdNext">换一批</button>
         <span style="align-self:center;font-size:12.5px;color:#7f8ab0">第 <b id="tlRdN">${rdIdx + 1}</b> / ${rdBatches.length} 批 · VPS 上要先装好 xray</span></div>`;
     if (k === "sq") return hd("站长社群", "由于国内网络限制，请优先选择加密通讯软件") + `
-      <div class="sq-grid">
-        <div class="sq-card"><div class="sq-hd"><span class="sq-ic">✈</span><h4>Telegram 官方群组</h4></div>
-          <div class="sq-bd"><p>推荐使用！我们的核心交流区。点击下方按钮直接唤起 APP 加入，获取最新资源与技术支持。</p></div>
-          <a class="sq-join" href="${esc(SQ.tg)}" target="_blank" rel="noopener">点击加入</a></div>
-        <div class="sq-card"><div class="sq-hd"><span class="sq-ic">✆</span><h4>WhatsApp 直连</h4></div>
-          <div class="sq-bd"><p style="text-align:center;margin-bottom:10px">扫描下方二维码添加好友</p>
-          <div class="sq-qrbox" id="sqQR">生成中…</div></div></div>
-        <div class="sq-card"><div class="sq-hd"><span class="sq-ic">✉</span><h4>电子邮件</h4></div>
-          <div class="sq-bd"><p>适用于商务合作或大额订单咨询。请发送邮件至下方地址，我们会在 24 小时内回复。</p></div>
-          <div class="sq-info">${esc(SQ.mail)}</div></div>
-        <div class="sq-card full"><div class="sq-hd"><span class="sq-ic">❖</span><h4>说明</h4></div>
-          <div class="sq-bd"><p>点右下角网页客服咨询</p></div></div>
-      </div>`;
-    return "";
+  <div class="sq-grid">
+    <div class="sq-card"><div class="sq-hd"><span class="sq-ic">✈</span><h4>Telegram 客服机器人</h4></div>
+      <div class="sq-bd"><p>推荐使用！我们的核心交流区。点击下方按钮直接唤起 APP 加入，获取最新资源与技术支持。</p></div>
+      <a class="sq-join" href="${esc(SQ.tg)}" target="_blank" rel="noopener">点击加入</a></div>
+    <div class="sq-card"><div class="sq-hd"><span class="sq-ic">✆</span><h4>QQ 客服</h4></div>
+      <div class="sq-bd">
+        <div class="sq-qrow"><span class="sq-qtag">客服</span><code>${esc(SQ.qq)}</code><button type="button" class="sq-cp" data-copy="${esc(SQ.qq)}" data-what="客服 QQ">复制</button></div>
+        <div class="sq-qrow"><span class="sq-qtag sp">备用</span><code>${esc(SQ.qq2)}</code><button type="button" class="sq-cp" data-copy="${esc(SQ.qq2)}" data-what="备用 QQ">复制</button></div>
+      </div></div>
+    <div class="sq-card"><div class="sq-hd"><span class="sq-ic">🎧</span><h4>24 小时网页客服</h4></div>
+      <div class="sq-bd"><p>点右下角客服图标即可，或点击下方按钮直接打开在线客服</p></div>
+      <a class="sq-live" href="${esc(SQ.web)}" target="_blank" rel="noopener"><span class="sq-dot"></span>在线客服 · 点击打开<span class="sq-arrow">↗</span></a></div>
+  </div>`;
   }
 
   /* SOCKS5 → 二维码：host:port:user:pass → socks5://user:pass@host:port（照原站，纯本地转换） */
