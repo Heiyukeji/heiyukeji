@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>视频教程 · 三月导航</title>
+<title>视频教程 · 黑彧导航</title>
 <meta name="description" content="视频教程：新手必看、节点搭建与中转、Tiktok基础、海外手机号、AI 智能、海外银行卡分类收录，跟着做一步到位。">
 <link rel="stylesheet" href="css/style.css?v=8">
 <style>
@@ -295,31 +295,52 @@ body.admin .ph .ops{display:flex}
 
 /* ── 播放弹层(替代原站 play-v8.html 跳转) ── */
 .player-bd{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
-  padding:20px;background:rgba(3,5,12,.72);backdrop-filter:blur(8px)}
+  padding:20px;background:rgba(3,5,12,.78);backdrop-filter:blur(8px)}
 .player-bd.open{display:flex}
-.player-box{--ac:123,92,255;width:min(680px,100%);border-radius:18px;overflow:hidden;position:relative;
+.player-box{--ac:123,92,255;width:min(1100px,100%);max-height:calc(100dvh - 40px);border-radius:18px;overflow:hidden;position:relative;
   background:#0a0f1e;border:1px solid rgba(150,170,230,.22);
   box-shadow:0 40px 120px -30px rgba(0,0,0,.85),0 0 60px -30px rgba(var(--ac),.5);
-  animation:pop .22s ease-out}
+  animation:pop .22s ease-out;display:flex;flex-direction:column}
 @keyframes pop{from{opacity:0;transform:scale(.97) translateY(8px)}to{opacity:1;transform:none}}
-.player-x{position:absolute;top:14px;right:14px;z-index:3;width:36px;height:36px;border-radius:50%;
+.player-x{position:absolute;top:14px;right:14px;z-index:10;width:36px;height:36px;border-radius:50%;
   border:1px solid rgba(255,255,255,.25);background:rgba(5,7,14,.5);color:#fff;font-size:17px;
   cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(4px)}
 .player-x:hover{background:rgba(255,80,80,.7);border-color:transparent}
-.player-cover{position:relative;aspect-ratio:16/9;overflow:hidden}
-.player-cover img{width:100%;height:100%;object-fit:cover;opacity:.55}
-.player-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,30,.2),#0a0f1e 96%)}
-.player-bigplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;
-  display:inline-flex;align-items:center;gap:11px;height:48px;padding:0 24px;border-radius:999px;
-  background:linear-gradient(100deg,#8a6bff,#5b8cff);color:#fff;font-size:14.5px;font-weight:700;
-  box-shadow:0 12px 36px -10px rgba(123,92,255,.8)}
-.player-bigplay:hover{transform:translate(-50%,-50%) scale(1.04)}
-.player-bigplay i{border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent #fff}
-.player-info{padding:20px 24px 24px}
-.player-info h3{margin:0 0 9px;font-size:18.5px;line-height:1.55;font-weight:700}
-.player-info .pm{font-size:12.5px;color:var(--ink-3);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.player-info .pm b{color:rgb(var(--ac));font-weight:600}
-.player-info .tip{margin:14px 0 0;font-size:12.5px;color:var(--ink-3);line-height:1.7;border-left:2px solid rgba(var(--ac),.5);padding-left:11px}
+.pw{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;padding:22px 24px;overflow:auto;flex:1;min-height:0;align-items:start}
+.player{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000;box-shadow:0 30px 60px -30px rgba(80,90,255,.6),inset 0 0 0 1px rgba(255,255,255,.06)}
+.player video{width:100%;height:100%;display:block;background:#000}
+.ttl{margin:18px 0 8px;font-size:clamp(20px,1.8vw,26px);font-weight:800;line-height:1.4}
+.mta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--ink-3)}
+.mta .pill2{padding:2px 9px;border-radius:999px;font-size:12px;border:1px solid var(--line-2);color:#d6dcf2}
+.mta .free{border-color:rgba(52,211,153,.6);color:#7ff0b8}
+.mta .vip{border-color:rgba(251,191,36,.6);color:#fbd34d}
+.mta .me{margin-left:auto}
+.mta button{border:1px solid var(--line-2);background:none;color:#d6dcf2;border-radius:999px;height:30px;padding:0 12px;font:inherit;font-size:12.5px;cursor:pointer}
+.ytl{display:flex;align-items:center;gap:10px;margin:14px 0 0;padding:10px 14px;border-radius:14px;text-decoration:none;color:var(--ink-2);font-size:13.5px;
+  background:linear-gradient(100deg,rgba(255,0,51,.08),rgba(13,19,48,.6) 45%);border:1px solid rgba(255,80,100,.2);transition:border-color .2s}
+.ytl:hover{border-color:rgba(255,80,100,.55);color:var(--ink)}
+.ytl img{width:28px;height:28px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px rgba(255,0,51,.55)}
+.ytl .ytl-logo{width:18px;height:13px;flex-shrink:0}
+.ytl span{flex:1;min-width:0}
+.ytl b{color:var(--ink)}
+.ytl em{font-style:normal;flex-shrink:0;padding:5px 13px;border-radius:999px;background:#ff0033;color:#fff;font-size:12.5px;font-weight:700}
+.desc{margin:16px 0 0;padding:16px 18px;border-radius:14px;background:rgba(13,19,48,.7);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05);
+  font-size:14px;line-height:1.85;color:#c9d1ee;white-space:pre-wrap;word-break:break-word}
+.pl-side{position:sticky;top:0;border-radius:16px;background:rgba(13,19,48,.7);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05);overflow:hidden}
+.pl-side h4{margin:0;padding:14px 16px;font-size:15px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+.pl-side h4 small{color:var(--ink-3);font-weight:400}
+.pl-side .ls{max-height:520px;overflow:auto;padding:6px}
+.pi{display:grid;grid-template-columns:22px 104px minmax(0,1fr);gap:10px;align-items:center;padding:8px;border-radius:10px;cursor:pointer}
+.pi:hover{background:rgba(255,255,255,.04)}
+.pi.on{background:rgba(157,124,255,.16);box-shadow:inset 0 0 0 1px rgba(157,124,255,.5)}
+.pi .n{font-size:12px;color:var(--ink-3);text-align:center}
+.pi.on .n{color:#b5a6ff}
+.pi img{width:104px;aspect-ratio:16/9;object-fit:cover;border-radius:7px}
+.pi b{font-size:13px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-weight:600}
+.pi small{display:block;font-size:11.5px;color:var(--ink-3);margin-top:2px}
+.pi small .v{color:#fbd34d}
+@media(max-width:1000px){.pw{grid-template-columns:minmax(0,1fr)}.pl-side .ls{max-height:420px}}
+@media(max-width:600px){.player-bd{padding:0}.player-box{border-radius:0;max-height:100dvh;height:100dvh}}
 </style>
 </head>
 <body>
@@ -377,17 +398,25 @@ body.admin .ph .ops{display:flex}
 
 <div class="toast" id="toast"></div>
 
-<!-- ═══ 播放弹层 ═══ -->
+<!-- ═══ 播放弹层（照原站 play-v8.html 布局） ═══ -->
 <div class="player-bd" id="playerBd">
   <div class="player-box" id="playerBox">
     <button class="player-x" id="playerX" aria-label="关闭">×</button>
-    <div class="player-cover">
-      <video id="pVideo" controls playsinline preload="metadata" style="display:block;width:100%;aspect-ratio:16/9;background:#000;object-fit:contain"></video>
-    </div>
-    <div class="player-info">
-      <h3 id="pTitle"></h3>
-      <div class="pm"><span id="pMeta"></span><b id="pFlag"></b></div>
-      <p class="tip">视频已内置在本站源码中，点开即播；看完即可按步骤完成搭建。</p>
+    <div class="pw">
+      <div>
+        <div class="player" id="pStage"></div>
+        <h1 class="ttl" id="pTitle"></h1>
+        <div class="mta" id="pMta"></div>
+        <a class="ytl" id="pYtl" href="https://www.youtube.com/@zhanzhang3yue/videos" target="_blank" rel="noopener">
+          <span>站内播放不了？可以直接去 YouTube 频道 <b>站长三月</b> 观看</span>
+          <em>去 YouTube 看 ↗</em>
+        </a>
+        <div class="desc" id="pDesc"></div>
+      </div>
+      <aside class="pl-side">
+        <h4>全部视频 <small id="pCnt"></small></h4>
+        <div class="ls" id="pList"></div>
+      </aside>
     </div>
   </div>
 </div>
@@ -658,23 +687,50 @@ function move(id, cat) {
   toast(`已移到「${c ? c.name : "未分类"}」`);
 }
 
-/* ── 播放弹层 ── */
+/* ── 播放弹层（照原站 play-v8.html） ── */
 const bd = $("#playerBd");
+let curPv = null;
 function openPlayer(id) {
   const v = VIDS.find(x => x.id === id); if (!v) return;
-  $("#playerBox").style.setProperty("--ac", "123,92,255");
+  const cat = (ST.cats.find(c => c.id === v.cid) || {});
+  $("#playerBox").style.setProperty("--ac", cat.ac || "123,92,255");
+  /* 播放器区：直接内嵌 video 播放 */
+  $("#pStage").innerHTML = `<video id="pVd" controls playsinline autoplay poster="${esc(v.cover_url)}" src="${esc(v.mp4)}" style="width:100%;height:100%;display:block;background:#000"></video>`;
+  curPv = $("#pVd");
+  curPv.play().catch(() => {});
+  /* 标题 */
   $("#pTitle").textContent = v.title;
-  $("#pMeta").textContent = [durFmt(v.duration) && `时长 ${durFmt(v.duration)}`, views(v.view_count), v.badge].filter(Boolean).join(" · ");
-  $("#pFlag").textContent = isFree(v) ? "免费" : "会员专享";
-  const pv = $("#pVideo");
-  pv.poster = v.cover_url; pv.src = v.mp4;
+  /* 元数据行：pill 标签 + 时长/播放量 + 分享 */
+  const f = isFree(v);
+  $("#pMta").innerHTML = `<span class="pill2 ${f ? "free" : "vip"}">${f ? "免费" : "会员"}</span>`
+    + (v.badge ? `<span class="pill2">${esc(v.badge)}</span>` : "")
+    + (cat.name ? `<span class="pill2">${esc(cat.name)}</span>` : "")
+    + `<span>${durFmt(v.duration) ? `时长 ${durFmt(v.duration)} · ` : ""}${views(v.view_count) || "0 次播放"}</span>`
+    + `<span class="me"></span><button type="button" id="pShare">复制分享链接</button>`;
+  $("#pShare").onclick = () => {
+    const u = location.origin + location.pathname + "?play=" + encodeURIComponent(v.id);
+    (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(() => toast("分享链接已复制"), () => toast(u));
+  };
+  /* 简介 */
+  $("#pDesc").innerHTML = v.title;
+  $("#pDesc").hidden = false;
+  /* 右侧列表 */
+  $("#pCnt").textContent = VIDS.length + " 节";
+  $("#pList").innerHTML = VIDS.map((x, i) => {
+    const xc = ST.cats.find(c => c.id === x.cid) || {};
+    return `<div class="pi${x.id === v.id ? " on" : ""}" data-pid="${esc(x.id)}">
+      <span class="n">${i + 1}</span>
+      <img src="${esc(x.cover_url)}" alt="" loading="lazy" onerror="this.onerror=null;this.src='assets/img/v-cover-1.jpg'">
+      <div><b>${esc(x.title)}</b><small>${durFmt(x.duration) ? durFmt(x.duration) + " · " : ""}<span class="v">${views(x.view_count) || "0 次播放"}</span></small></div>
+    </div>`;
+  }).join("");
+  $("#pList").querySelectorAll(".pi").forEach(el => el.addEventListener("click", () => openPlayer(el.dataset.pid)));
   bd.classList.add("open");
-  pv.play().catch(() => {});
 }
 function closePlayer() {
   bd.classList.remove("open");
-  const pv = $("#pVideo");
-  if (pv) { pv.pause(); pv.removeAttribute("src"); pv.load(); }
+  if (curPv) { curPv.pause(); curPv.removeAttribute("src"); curPv.load(); curPv = null; }
+  $("#pStage").innerHTML = "";
 }
 $("#playerX").addEventListener("click", closePlayer);
 bd.addEventListener("click", e => { if (e.target === bd) closePlayer(); });
