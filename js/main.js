@@ -14,7 +14,7 @@ const TOOLS = [
   { k: "cmd", t: "一键命令", sub: "7 个面板，粘贴就装", c: "157,124,255", lg: "real/3xui.png" },
   { k: "check", t: "环境与 IP 检测", sub: "纯净度、泄漏、路由", c: "52,211,153", lg: "tools/ipinfo.io.png" },
   { k: "qr", t: "SOCKS5 转二维码", sub: "住宅 IP 扫码进小火箭", c: "244,114,182", lg: "real/shadowrocket.png" },
-  { k: "dl", t: "软件下载", sub: "客户端、SSH 工具", c: "91,140,255", lg: "real/v2rayn.png" },
+  { k: "dl", t: "节点工具下载", sub: "客户端、SSH 工具", c: "91,140,255", lg: "real/v2rayn.png" },
   { k: "speed", t: "测速工具", sub: "延迟、带宽、节点质量", c: "56,189,248", lg: "tools/speedtest.net.png" },
   { k: "rd", t: "域名优选", sub: "Reality 目标域名测速", c: "167,139,250", lg: "real/xray.png" },
   { k: "doc", t: "代理技术文档", sub: "协议原理与搭建手册", c: "148,163,184", u: "https://xtls.github.io/", lg: "real/xray.png" },
@@ -498,10 +498,10 @@ $("#year").textContent = new Date().getFullYear();
       <div class="tl-qr"><div><input id="tlSocks" placeholder="host:port:username:password" autocomplete="off"><div class="url" id="tlSocksUrl"></div></div>
         <div class="out" id="tlQR">粘贴后这里出二维码</div></div>
       <ol class="tl-steps"><li><b>复制 IP 信息</b>从买住宅 IP 的后台复制「host:port:用户名:密码」整行。</li><li><b>粘到上面</b>自动转成 socks5:// 链接和二维码。</li><li><b>小火箭扫码</b>打开小火箭的扫码，对准右边的二维码，扫完就添加好了。</li></ol>`;
-    if (k === "dl") return hd("软件下载", "Windows / Mac / 安卓") + `
+    if (k === "dl") return hd("软件下载", "Windows / Mac / 安卓 /ios") + `
       <p class="tl-lead">代理客户端、节点管理面板客户端，还有连 VPS 用的 SSH 工具。</p>` +
       big(DL_ITEMS, "91,140,255", "去下载") + `
-      <ol class="tl-steps"><li><b>装客户端</b>电脑装 V2rayN，安卓装 v2rayNG，苹果用小火箭。</li><li><b>搭一条自己的线路</b>会一点命令行的去 <button type="button" data-go="cmd">一键命令</button>，粘贴就装好面板。</li><li><b>连上 VPS</b>FinalShell 填 IP 和密码就能登录服务器。</li></ol>`;
+      <ol class="tl-steps"><li><b>安装客户端</b>电脑装 karing，安卓装 karing，苹果用小火箭。</li><li><b>搭一条自己的线路</b>会一点命令行的去 <button type="button" data-go="cmd">一键命令</button>，粘贴就装好面板。</li><li><b>连上 VPS</b>FinalShell 填 IP 和密码就能登录服务器。</li></ol>`;
     if (k === "speed") return hd("测速工具") + `
       <p class="tl-lead">${esc(SPEED_INTRO)}开着代理测，测出来的就是节点本身的速度。</p>` +
       big(SPEED_ITEMS, "56,189,248", "开始测速") + `
