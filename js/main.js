@@ -41,7 +41,7 @@ const CMDS = [
   { name: "3X-UI 面板（需要域名）", badge: "Xray · Panel", desc: "panel.example.com 替换为你自己的域名，再执行",
     github: "https://github.com/Heiyukeji/3x-ui",
     cmd: "XUI_DOMAIN=panel.example.com bash <(curl -Ls https://raw.githubusercontent.com/Heiyukeji/3x-ui/main/install.sh)" },
-  { name: "一键搭建面板", badge: "Aurora · Panel", desc: "Aurora Admin Panel，多协议共存，一键搭建，无需配置",
+  { name: "一键搭建面板", badge: "Aurora · Panel", desc: "多协议共存，一键搭建，无需配置，可中转，可指纹浏览器",
     cmd: "bash <(curl -fsSL https://www.geto.im/oneclick/install.sh)" },
   { name: "TMS 面板", badge: "Xray · Panel", desc: "流量转发管理面板，多机集中监控与调度",
     github: "https://github.com/Heiyukeji/Tms",
