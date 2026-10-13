@@ -500,7 +500,7 @@ $("#year").textContent = new Date().getFullYear();
     if (k === "dl") return hd("软件下载", "Windows / Mac / 安卓 /ios") + `
       <p class="tl-lead">代理客户端、节点管理面板客户端，还有连 VPS 用的 SSH 工具。</p>` +
       big(DL_ITEMS, "91,140,255", "去下载") + `
-      <ol class="tl-steps"><li><b>安装客户端</b>电脑装 karing，安卓装 karing，苹果用小火箭。</li><li><b>搭一条自己的线路</b>会一点命令行的去 <button type="button" data-go="cmd">一键命令</button>，粘贴就装好面板。</li><li><b>连上 VPS</b>FinalShell 填 IP 和密码就能登录服务器。</li></ol>`;
+      <ol class="tl-steps"><li><b>安装客户端</b>电脑装 karing，安卓装 karing，苹果用karing / 小火箭。</li><li><b>搭一条自己的线路</b>会一点命令行的去 <button type="button" data-go="cmd">一键命令</button>，粘贴就装好面板。</li><li><b>连上 VPS</b>FinalShell 填 IP 和密码就能登录服务器。</li></ol>`;
     if (k === "speed") return hd("测速工具") + `
       <p class="tl-lead">${esc(SPEED_INTRO)}开着代理测，测出来的就是节点本身的速度。</p>` +
       big(SPEED_ITEMS, "56,189,248", "开始测速") + `
