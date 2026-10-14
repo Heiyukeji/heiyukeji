@@ -382,20 +382,6 @@ if (toTop) toTop.addEventListener("click", e => {
 const yearEl = $("#year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* ── 悬浮音乐条（占位播放器，可换成真实音频） ── */
-(() => {
-  const bar = $("#musicbar");
-  if (!bar) return;
-  const play = $("#mbPlay"), tip = bar.querySelector(".mt small");
-  play.addEventListener("click", () => {
-    const on = bar.classList.toggle("on");
-    play.textContent = on ? "❚❚" : "▶";
-    play.setAttribute("aria-label", on ? "暂停" : "播放");
-    tip.textContent = on ? "正在播放（示例曲目）" : "点击播放试试";
-  });
-  $("#mbX").addEventListener("click", () => bar.remove());
-})();
-
 /* ── 左右隐藏导航（侧翼屏）：左=常用工具，右=常用链接 ──
    工具与链接只在两侧展示，条目均为真实站点，可换成你自己的。 */
 (() => {
