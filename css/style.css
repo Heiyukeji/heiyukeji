@@ -376,6 +376,28 @@ button{font:inherit}
 }
 @media (max-width:980px){.wing{display:none}}
 
+/* ── 移动端：底部两个入口（常用工具 / 常用链接）+ 抽屉，照原站 w-dock 方案 ── */
+.w-dock{display:none}
+@media (max-width:980px){
+  .w-dock{display:flex;position:fixed;z-index:62;left:50%;bottom:16px;transform:translateX(-50%);gap:8px;padding:6px;
+    border-radius:999px;background:rgba(12,16,38,.92);border:1px solid rgba(150,170,255,.3);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+  .w-dock button{height:38px;padding:0 18px;border-radius:999px;border:0;font:inherit;font-size:13.5px;font-weight:700;
+    color:#fff;background:rgba(157,124,255,.2);cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .w-dock button+button{background:rgba(56,189,248,.2)}
+  .w-dock button:active{transform:scale(.96)}
+}
+.w-drawer{position:fixed;z-index:85;top:0;bottom:0;width:min(86vw,330px);overflow:auto;scrollbar-width:none;
+  padding:8px 6px 20px;background:linear-gradient(165deg,rgba(22,29,62,.97),rgba(8,12,28,.98));
+  backdrop-filter:blur(14px) saturate(1.15);-webkit-backdrop-filter:blur(14px) saturate(1.15);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.w-drawer::-webkit-scrollbar{display:none}
+.w-drawer.l{left:0;transform:translateX(-105%);--wc:157,124,255}
+.w-drawer.r{right:0;transform:translateX(105%);--wc:56,189,248}
+.w-drawer.on{transform:none}
+.w-mask{position:fixed;inset:0;z-index:84;background:rgba(2,4,10,.6);opacity:0;pointer-events:none;transition:opacity .25s}
+.w-mask.on{opacity:1;pointer-events:auto}
+
 /* ── 响应式 ── */
 @media (max-width:1180px){
   .theater{min-height:480px}
