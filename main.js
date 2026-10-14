@@ -148,38 +148,42 @@ const NEWS = [
   { t: "短视频剪辑速成", ago: "2026/6/22", free: 1, c: "244,114,182" },
 ];
 
-/* ── 三栏 ── */
-$("#pickList").innerHTML = PICKS.map(p => `
+/* ── 三栏（无对应元素的页面自动跳过） ── */
+const pickList = $("#pickList");
+if (pickList) pickList.innerHTML = PICKS.map(p => `
   <a class="row pk" href="#picks" style="--c:${p.c}">
     <span class="pk-ic real${p.dk ? " dk" : ""}"><img src="assets/img/${p.lg}" alt="" loading="lazy"></span>
     <span class="nm"><b>${esc(p.t)}</b><i>${esc(p.d)}</i></span>
     <span class="pk-tag">${esc(p.tag)}</span>
   </a>`).join("");
 
-$("#newsList").innerHTML = NEWS.map(v => `
+const newsList = $("#newsList");
+if (newsList) newsList.innerHTML = NEWS.map(v => `
   <a class="row" href="#">
     <span class="nw-th" style="--c:${v.c}"></span>
     <span class="nm"><b>${esc(v.t)}</b><i>${esc(v.ago)} · ${v.free ? "免费" : "会员"}</i></span>
   </a>`).join("");
 
 
-/* ── 首屏卡片：跟手倾斜 + 光斑 ── */
+/* ── 首屏卡片：跟手倾斜 + 光斑（无 #stack 的页面自动跳过） ── */
 const stack = $("#stack");
 const TILT = matchMedia("(prefers-reduced-motion: reduce)").matches ? 2.5 : 6;
-stack.querySelectorAll(".hcard").forEach((el, i) => el.style.setProperty("--i", i));
-stack.addEventListener("pointermove", e => {
-  const k = e.target.closest(".hcard"); if (!k || e.pointerType !== "mouse") return;
-  const r = k.getBoundingClientRect();
-  const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-  k.style.setProperty("--mx", `${(x * 100).toFixed(1)}%`);
-  k.style.setProperty("--my", `${(y * 100).toFixed(1)}%`);
-  k.style.transform =
-    `translateY(-3px) rotateX(${((.5 - y) * TILT).toFixed(2)}deg) rotateY(${((x - .5) * TILT).toFixed(2)}deg)`;
-});
-stack.addEventListener("pointerout", e => {
-  const k = e.target.closest(".hcard");
-  if (k && !k.contains(e.relatedTarget)) k.style.transform = "";
-});
+if (stack) {
+  stack.querySelectorAll(".hcard").forEach((el, i) => el.style.setProperty("--i", i));
+  stack.addEventListener("pointermove", e => {
+    const k = e.target.closest(".hcard"); if (!k || e.pointerType !== "mouse") return;
+    const r = k.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    k.style.setProperty("--mx", `${(x * 100).toFixed(1)}%`);
+    k.style.setProperty("--my", `${(y * 100).toFixed(1)}%`);
+    k.style.transform =
+      `translateY(-3px) rotateX(${((.5 - y) * TILT).toFixed(2)}deg) rotateY(${((x - .5) * TILT).toFixed(2)}deg)`;
+  });
+  stack.addEventListener("pointerout", e => {
+    const k = e.target.closest(".hcard");
+    if (k && !k.contains(e.relatedTarget)) k.style.transform = "";
+  });
+}
 
 /* ── 首屏星空：canvas 闪烁星点（照原站，滚出视口/切后台自动停帧） ── */
 (() => {
@@ -307,7 +311,8 @@ const PINS = [
   ["AI 工具", 2, 6], ["云服务", 54, 2], ["学习平台", 20, 44],
   ["效率软件", 62, 40], ["设计素材", 8, 78], ["社区", 52, 76],
 ];
-$("#mapPins").insertAdjacentHTML("beforeend", PINS.map(([t, l, tp], i) =>
+const mapPins = $("#mapPins");
+if (mapPins) mapPins.insertAdjacentHTML("beforeend", PINS.map(([t, l, tp], i) =>
   `<span class="map-pin" style="left:${l}%;top:${tp}%"><em style="--d:${(i * .42).toFixed(2)}s"></em>${esc(t)}</span>`).join(""));
 
 (() => {
@@ -370,10 +375,12 @@ $("#mapPins").insertAdjacentHTML("beforeend", PINS.map(([t, l, tp], i) =>
 })();
 
 /* ── 杂项 ── */
-$("#toTop").addEventListener("click", e => {
+const toTop = $("#toTop");
+if (toTop) toTop.addEventListener("click", e => {
   e.preventDefault(); scrollTo({ top: 0, behavior: "smooth" });
 });
-$("#year").textContent = new Date().getFullYear();
+const yearEl = $("#year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ── 悬浮音乐条（占位播放器，可换成真实音频） ── */
 (() => {
@@ -392,7 +399,7 @@ $("#year").textContent = new Date().getFullYear();
 /* ── 左右隐藏导航（侧翼屏）：左=常用工具，右=常用链接 ──
    工具与链接只在两侧展示，条目均为真实站点，可换成你自己的。 */
 (() => {
-  if (!$("#stack")) return;                   // 仅首页注入
+  if (!document.body) return;                 // 全页面注入（含视频页等）
   document.body.classList.add("has-wings");
   const total = LINKS.reduce((n, g) => n + g.items.length, 0);
   const left = document.createElement("aside");
@@ -463,7 +470,7 @@ $("#year").textContent = new Date().getFullYear();
 
 /* ── 工具弹层（照原站 tools.js：外壳 .sheet + tl- 内容布局，条目数据一致） ── */
 (() => {
-  if (!$("#stack")) return;
+  if (!document.body) return;                 // 全页面可用（含视频页等）
   let sheet, bd, body, cur;
   const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   let rdBatches = shuffle(RD.batches), rdIdx = 0;
