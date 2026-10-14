@@ -22,7 +22,7 @@ const TOOLS = [
 
 /* ── 站长社群（顶栏「站长社群」弹层；以下为示例数据，部署前换成你自己的入口） ── */
 const SQ = {
-  tg: "https://t.me/heiyukefubot",      // Telegram 客服机器人
+  tg: "https://t.me/hykftgbot",      // Telegram 客服机器人
   qq: "928533857",                      // QQ 客服
   qq2: "319070682",                     // QQ 客服（备用）
   web: "https://tawk.to/hykf",          // 24 小时网页客服
