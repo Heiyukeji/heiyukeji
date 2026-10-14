@@ -277,27 +277,6 @@ button{font:inherit}
 .copy{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);
   font-size:12px;color:var(--ink3);display:flex;gap:16px;flex-wrap:wrap}
 
-/* ── 悬浮音乐条 ── */
-.musicbar{position:fixed;left:18px;bottom:18px;z-index:70;display:flex;align-items:center;gap:11px;
-  padding:9px 12px 9px 9px;border-radius:999px;border:1px solid var(--line2);
-  background:rgba(8,12,26,.85);backdrop-filter:blur(10px);box-shadow:0 14px 40px rgba(0,0,0,.5)}
-.musicbar .disc{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;
-  background:conic-gradient(from 0deg,#1a2350,#2b3a78,#1a2350);border:1px solid rgba(150,170,255,.4);
-  animation:spin-disc 6s linear infinite;animation-play-state:paused}
-.musicbar.on .disc{animation-play-state:running}
-@keyframes spin-disc{to{transform:rotate(360deg)}}
-.musicbar .disc svg{width:15px;height:15px;color:#aebaff}
-.musicbar .mt{min-width:0;max-width:190px;line-height:1.3}
-.musicbar .mt b{display:block;font-size:12.5px;font-weight:700;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.musicbar .mt small{display:block;font-size:10.5px;color:var(--ink3);
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.musicbar button{width:30px;height:30px;border-radius:50%;border:1px solid var(--line2);
-  background:rgba(150,170,230,.08);color:var(--ink);cursor:pointer;font-size:11px;flex:none;
-  display:grid;place-items:center}
-.musicbar button:hover{border-color:#93a3d4}
-.musicbar .mb-play{background:var(--cta);border-color:transparent;color:#fff}
-
 /* ── 左右隐藏导航（侧翼屏）──
    宽屏：两侧玻璃屏 3D 斜立，悬停转正；中屏：收成贴边竖条把手，悬停滑出；窄屏：隐藏 */
 .wing{position:fixed;top:96px;z-index:45;width:184px;max-height:calc(100vh - 130px);overflow:auto;
@@ -424,7 +403,6 @@ button{font:inherit}
   .hcard{height:160px}
   .hcard .tx{right:42%}
   .mapband{padding:0}
-  .musicbar .mt{max-width:120px}
   .script b{font-size:26px}
 }
 /* 减少动态效果：放慢，不是停掉（同原站规矩） */
