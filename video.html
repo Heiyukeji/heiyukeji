@@ -435,6 +435,9 @@ const VIDS = [
 { id:"fangfa1", vid:"", cid:"c2", title:"一键搭建节点教程，个人独享，无需面板配置，搭建即用，多协议选择，可共存", cover_url:"assets/img/v-cover-1.jpg", duration:495, view_count:0, sort_order:2, is_free:true, badge:"精品", highlight:false, category:null, created_at:"2026-10-12", mp4:"assets/video/yijiandajian.mp4" },
 ];
 
+/* ── 两个教程视频 → 跳 hy.hy88.de 同款独立教程页(视频+文字步骤+命令+下载) ── */
+const TUTORIAL_PAGE = { fangfa1: "docs/video1.html", fangfa2: "docs/video2.html" };
+
 /* 短标题/时长/播放量/角标映射(照原站) */
 const splitT = t => String(t || "").replace(/^\(旧\)/, "").split(/[！!，,。？?｜|]/).map(x => x.trim()).filter(Boolean);
 const shortT = t => { const seg = splitT(t); let s = seg[0] || ""; if (s.length < 6) s = seg.slice(0, 3).reduce((a, b) => b.length > a.length ? b : a, s); return s; };
@@ -496,7 +499,11 @@ function feat() {
       <button class="bt main" type="button" data-play="${esc(f.id)}">▶ 立即观看</button>
       <button class="bt gh" type="button" id="featAll">看全部 ${VIDS.length} 节</button>
     </div>`;
-  $("#feat").querySelector("[data-play]").addEventListener("click", () => openPlayer(f.id));
+  $("#feat").querySelector("[data-play]").addEventListener("click", () => {
+    const t = TUTORIAL_PAGE[f.id];
+    if (t) { location.href = t; return; }
+    openPlayer(f.id);
+  });
   $("#featAll").addEventListener("click", () => { CUR = "all"; PAGE = 0; DIR = "fade"; render(); });
 }
 
@@ -644,7 +651,11 @@ function bindCards() {
     el.draggable = admin;
     el.addEventListener("dragstart", e => { e.dataTransfer.setData("text/plain", el.dataset.id); el.classList.add("dragging"); });
     el.addEventListener("dragend", () => { el.classList.remove("dragging"); document.querySelectorAll(".vc.dropL,.vc.dropR").forEach(x => x.classList.remove("dropL", "dropR")); });
-    el.addEventListener("click", () => openPlayer(el.dataset.id));
+    el.addEventListener("click", () => {
+      const t = TUTORIAL_PAGE[el.dataset.id];
+      if (t) { location.href = t; return; }
+      openPlayer(el.dataset.id);
+    });
   });
   document.querySelectorAll("#grid [data-move]").forEach(sel => sel.addEventListener("change", () => move(sel.dataset.move, sel.value)));
 }
@@ -724,7 +735,11 @@ function openPlayer(id) {
       <div><b>${esc(x.title)}</b><small>${durFmt(x.duration) ? durFmt(x.duration) + " · " : ""}<span class="v">${views(x.view_count) || "0 次播放"}</span></small></div>
     </div>`;
   }).join("");
-  $("#pList").querySelectorAll(".pi").forEach(el => el.addEventListener("click", () => openPlayer(el.dataset.pid)));
+  $("#pList").querySelectorAll(".pi").forEach(el => el.addEventListener("click", () => {
+    const t = TUTORIAL_PAGE[el.dataset.pid];
+    if (t) { location.href = t; return; }
+    openPlayer(el.dataset.pid);
+  }));
   bd.classList.add("open");
 }
 function closePlayer() {
@@ -735,9 +750,12 @@ function closePlayer() {
 $("#playerX").addEventListener("click", closePlayer);
 bd.addEventListener("click", e => { if (e.target === bd) closePlayer(); });
 addEventListener("keydown", e => { if (e.key === "Escape") closePlayer(); });
-/* 深链:首页弹窗跳 video.html?play=fangfa1 自动打开对应视频 */
+/* 深链:首页弹窗跳 video.html?play=fangfa1 自动打开对应视频(教程视频跳独立教程页) */
 const pm = new URLSearchParams(location.search).get("play");
-if (pm && VIDS.some(x => x.id === pm)) openPlayer(pm);
+if (pm && VIDS.some(x => x.id === pm)) {
+  const t = TUTORIAL_PAGE[pm];
+  if (t) location.href = t; else openPlayer(pm);
+}
 
 /* ── 星空(照原站 V7.stars:240 颗,幂分布大小,双色,闪烁公式一致) ── */
 (function stars() {
