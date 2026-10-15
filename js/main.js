@@ -14,7 +14,7 @@ const TOOLS = [
   { k: "cmd", t: "一键命令", sub: "7 个面板，粘贴就装", c: "157,124,255", lg: "real/3xui.png" },
   { k: "check", t: "环境与 IP 检测", sub: "纯净度、泄漏、路由", c: "52,211,153", lg: "tools/ipinfo.io.png" },
   { k: "qr", t: "SOCKS5 转二维码", sub: "住宅 IP 扫码进小火箭", c: "244,114,182", lg: "real/shadowrocket.png" },
-  { k: "dl", t: "节点工具下载", sub: "客户端、SSH 工具", c: "91,140,255", lg: "real/v2rayn.png" },
+  { k: "dl", t: "节点工具下载", sub: "客户端、SSH 工具", c: "91,140,255", lg: "real/karing.png" },
   { k: "speed", t: "测速工具", sub: "延迟、带宽、节点质量", c: "56,189,248", lg: "tools/speedtest.net.png" },
   { k: "rd", t: "域名优选", sub: "Reality 目标域名测速", c: "167,139,250", lg: "real/xray.png" },
   { k: "doc", t: "代理技术文档", sub: "协议原理与搭建手册", c: "148,163,184", u: "https://xtls.github.io/", lg: "real/xray.png" },
@@ -77,7 +77,7 @@ const CHECK_SECS = [
 
 const DL_ITEMS = [
   { name: "karing", url: "https://karing.app", desc: "安卓 / ios / Windows / Mac 客户端,官方发布页" },
-  { name: "工具整理", url: "https://huarun.win", desc: "大师整理的，里面包括所有节点工具下载方式" },
+  { name: "工具合集", url: "https://huarun.win", desc: "大师整理的，里面包括所有节点工具下载方式" },
   { name: "Finalshell SSH 工具", url: "https://www.hostbuf.com/", desc: "SSH 连接与服务器管理工具" },
 ];
 
