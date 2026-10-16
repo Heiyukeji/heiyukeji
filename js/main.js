@@ -57,7 +57,7 @@ const CMDS = [
 
 const CHECK_SECS = [
   { title: "IP 信息查询", items: [
-    { name: "IPInfo.io", url: "https://ipinfo.io/", desc: "IP 归属地、运营商、ASN 详细信息" },
+    { name: "ipip.la", url: "https://ipip.la/", desc: "IP 归属地、运营商、ASN 详细信息" },
     { name: "IP2Location", url: "https://www.ip2location.com/", desc: "IP 地理位置精准查询" } ] },
   { title: "安全 / 风险评估", items: [
     { name: "IPQualityScore", url: "https://www.ipqualityscore.com/user/search", desc: "IP 欺诈风险、代理/VPN 检测评分" },
