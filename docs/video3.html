@@ -124,10 +124,11 @@
     <h2>安装方式</h2>
     <p class="desc">命令介绍网站：<a href="https://github.com/MHSanaei/3x-ui" target="_blank" style="color:#6ea8ff;text-decoration:none;">https://github.com/MHSanaei/3x-ui</a>（不用看，想了解可以看看）
 
-     复制下方命令，粘贴到 SSH 中执行即可完成安装。（这是v3.6.0版本，需要其他直接改后面版本号，这个版本稳定，其他版本搭建的需要其他设置，不然没网络）</p>
+     复制下方命令，粘贴到 SSH 中执行即可完成安装。（这是v3.8.5版本）</p>
     <div class="card">
       <div class="code-row">
-        <div class="code-block" id="cmd">bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh) v3.6.0</div>
+        <div class="code-block" id="cmd">VERSION=v3.8.5 && bash <(curl -Ls "https://raw.githubusercontent.com/mhsanaei/3x-ui/$VERSION/install.sh") $VERSION
+</div>
         <button class="btn btn-copy" onclick="copyCmd(this)">复制命令</button>
       </div>
     </div>
