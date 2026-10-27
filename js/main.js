@@ -37,7 +37,7 @@ const FREENODE = {
 const CMDS = [
   { name: "3X-UI 面板（原版稳定）", badge: "Xray · Panel", desc: "Xray 可视化管理面板，支持多种协议",
     github: "https://github.com/MHSanaei/3x-ui",
-    cmd: "bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)" },
+    cmd: "bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh) v3.6.0" },
   { name: "3X-UI 面板（魔改版）", badge: "Xray · Panel", desc: "Xray 可视化管理面板，支持多种协议",
     github: "https://github.com/Heiyukeji/3x-ui",
     cmd: "XUI_AUTO=1 bash <(curl -Ls https://raw.githubusercontent.com/Heiyukeji/3x-ui/main/install.sh)" },
