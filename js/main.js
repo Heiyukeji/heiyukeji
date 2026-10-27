@@ -35,12 +35,12 @@ const FREENODE = {
 };
 
 const CMDS = [
-  { name: "3X-UI 面板（无需域名）", badge: "Xray · Panel", desc: "Xray 可视化管理面板，支持多种协议",
+  { name: "3X-UI 面板（原版稳定）", badge: "Xray · Panel", desc: "Xray 可视化管理面板，支持多种协议",
+    github: "https://github.com/MHSanaei/3x-ui",
+    cmd: "bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)" },
+  { name: "3X-UI 面板（魔改版）", badge: "Xray · Panel", desc: "Xray 可视化管理面板，支持多种协议",
     github: "https://github.com/Heiyukeji/3x-ui",
     cmd: "XUI_AUTO=1 bash <(curl -Ls https://raw.githubusercontent.com/Heiyukeji/3x-ui/main/install.sh)" },
-  { name: "3X-UI 面板（需要域名）", badge: "Xray · Panel", desc: "panel.example.com 替换为你自己的域名，再执行",
-    github: "https://github.com/Heiyukeji/3x-ui",
-    cmd: "XUI_DOMAIN=panel.example.com bash <(curl -Ls https://raw.githubusercontent.com/Heiyukeji/3x-ui/main/install.sh)" },
   { name: "一键搭建面板", badge: "Aurora · Panel", desc: "多协议共存，一键搭建，无需配置，可中转，可指纹浏览器",
     cmd: "bash <(curl -fsSL https://www.geto.im/oneclick/install.sh)" },
   { name: "TMS 面板", badge: "Xray · Panel", desc: "流量转发管理面板，多机集中监控与调度",
