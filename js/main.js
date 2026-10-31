@@ -58,7 +58,7 @@ const CMDS = [
 const CHECK_SECS = [
   { title: "IP 信息查询", items: [
     { name: "ipip.la", url: "https://ipip.la/", desc: "IP 归属地、运营商、ASN 详细信息" },
-    { name: "IP2Location", url: "https://www.ip2location.com/", desc: "IP 地理位置精准查询" } ] },
+    { name: "IP检测", url: "https://www.ipjiance.com/", desc: "IP质量查询，多查几个没坏处，也不一定准" } ] },
   { title: "安全 / 风险评估", items: [
     { name: "IP检测", url: "https://ipjiance.com/", desc: "IP 欺诈风险、代理/VPN 检测评分" },
     { name: "Scamalytics", url: "https://scamalytics.com/ip/", desc: "欺诈值评分，适合判断 IP 纯净度" },
