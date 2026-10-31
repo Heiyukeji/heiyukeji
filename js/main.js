@@ -13,7 +13,7 @@ const TOOLS = [
   { k: "node", t: "免费节点", sub: "长期更新免费vpn", c: "255,196,92", lg: "real/v2ray.png" },
   { k: "cmd", t: "一键命令", sub: "7 个面板，粘贴就装", c: "157,124,255", lg: "real/3xui.png" },
   { k: "check", t: "环境与 IP 检测", sub: "纯净度、泄漏、路由", c: "52,211,153", lg: "tools/ipinfo.io.png" },
-  { k: "qr", t: "代理链接二维码工具箱", sub: "多协议链接生成 · 本地转换不联网", c: "244,114,182", lg: "real/shadowrocket.png" },
+  { k: "qr", t: "代理转换工具箱", sub: "多协议链接 + 二维码相互转换生成器 · 纯本地运行不联网", c: "244,114,182", lg: "real/shadowrocket.png" },
   { k: "dl", t: "节点工具下载", sub: "客户端、SSH 工具", c: "91,140,255", lg: "real/karing.png" },
   { k: "speed", t: "测速工具", sub: "延迟、带宽、节点质量", c: "56,189,248", lg: "tools/speedtest.net.png" },
   { k: "rd", t: "域名优选", sub: "Reality 目标域名测速", c: "167,139,250", lg: "real/xray.png" },
