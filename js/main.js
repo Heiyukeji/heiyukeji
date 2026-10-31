@@ -13,7 +13,7 @@ const TOOLS = [
   { k: "node", t: "免费节点", sub: "长期更新免费vpn", c: "255,196,92", lg: "real/v2ray.png" },
   { k: "cmd", t: "一键命令", sub: "7 个面板，粘贴就装", c: "157,124,255", lg: "real/3xui.png" },
   { k: "check", t: "环境与 IP 检测", sub: "纯净度、泄漏、路由", c: "52,211,153", lg: "tools/ipinfo.io.png" },
-  { k: "qr", t: "SOCKS5 转二维码", sub: "住宅 IP 扫码进小火箭", c: "244,114,182", lg: "real/shadowrocket.png" },
+  { k: "qr", t: "代理链接二维码工具箱", sub: "多协议链接生成 · 本地转换不联网", c: "244,114,182", lg: "real/shadowrocket.png" },
   { k: "dl", t: "节点工具下载", sub: "客户端、SSH 工具", c: "91,140,255", lg: "real/karing.png" },
   { k: "speed", t: "测速工具", sub: "延迟、带宽、节点质量", c: "56,189,248", lg: "tools/speedtest.net.png" },
   { k: "rd", t: "域名优选", sub: "Reality 目标域名测速", c: "167,139,250", lg: "real/xray.png" },
@@ -518,11 +518,10 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
         <div class="tl-row"><button class="tl-b main" data-copy-i="${i}">复制命令</button>${c.github ? `<a class="tl-b" href="${esc(c.github)}" target="_blank" rel="noopener">GitHub ↗</a>` : ""}</div></div>`).join("")}</div>`;
     if (k === "check") return hd("环境与 IP 检测", `${nLinks} 个检测站`) + `
       <p class="tl-lead">新买的 IP、新搭的节点，先在这里测一遍：归属地对不对、干不干净、DNS 有没有漏。</p>` + secs(CHECK_SECS);
-    if (k === "qr") return hd("SOCKS5 转二维码", "只在你的浏览器里转换") + `
-      <p class="tl-lead">住宅 IP 买来是「host:port:用户名:密码」这种格式，粘进来就转成小火箭能扫的二维码，不会发给任何人。</p>
-      <div class="tl-qr"><div><input id="tlSocks" placeholder="host:port:username:password" autocomplete="off"><div class="url" id="tlSocksUrl"></div></div>
-        <div class="out" id="tlQR">粘贴后这里出二维码</div></div>
-      <ol class="tl-steps"><li><b>复制 IP 信息</b>从买住宅 IP 的后台复制「host:port:用户名:密码」整行。</li><li><b>粘到上面</b>自动转成 socks5:// 链接和二维码。</li><li><b>小火箭扫码</b>打开小火箭的扫码，对准右边的二维码，扫完就添加好了。</li></ol>`;
+    if (k === "qr") return hd("代理链接二维码工具箱", "只在你的浏览器里转换") + `
+      <p class="tl-lead">粘贴任意代理链接（vless / socks5 / http / ss / vmess / trojan / hysteria2）转成小火箭能扫的二维码；还能上传二维码图片反向解析成多协议链接。全程在你浏览器里完成，不会发给任何人。</p>
+      <iframe src="qrbox.html" title="代理链接二维码工具箱" style="width:100%;height:640px;border:0;border-radius:14px;background:#0f172a"></iframe>
+      <ol class="tl-steps"><li><b>复制链接或 IP 信息</b>从买住宅 IP 的后台复制「host:port:用户名:密码」整行，或复制节点链接。</li><li><b>粘到工具里</b>自动转成链接和二维码，还能多协议互转。</li><li><b>小火箭扫码</b>打开小火箭的扫码，对准二维码，扫完就添加好了。</li></ol>`;
     if (k === "dl") return hd("软件下载", "Windows / Mac / 安卓 /ios") + `
       <p class="tl-lead">代理客户端、节点管理面板客户端，还有连 VPS 用的 SSH 工具。</p>` +
       big(DL_ITEMS, "91,140,255", "去下载") + `
@@ -553,16 +552,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   </div>`;
   }
 
-  /* SOCKS5 → 二维码：host:port:user:pass → socks5://user:pass@host:port（照原站，纯本地转换） */
-  function socks(v) {
-    const out = document.getElementById("tlQR"), u = document.getElementById("tlSocksUrl");
-    if (!v) { out.textContent = "粘贴后这里出二维码"; u.textContent = ""; return; }
-    const p = v.split(":");
-    if (p.length < 2 || !/^\d+$/.test(p[1])) { out.textContent = "格式不对，要 host:port:用户名:密码"; u.textContent = ""; return; }
-    const url = p.length >= 4 ? `socks5://${encodeURIComponent(p[2])}:${encodeURIComponent(p.slice(3).join(":"))}@${p[0]}:${p[1]}` : `socks5://${p[0]}:${p[1]}`;
-    u.textContent = url;
-    qr(out, url, 134);
-  }
+  /* 二维码绘制：给免费节点等小场景用（工具箱 qrbox.html 自带一套） */
   function qr(out, text, size) {
     const draw = () => { out.innerHTML = ""; new QRCode(out, { text, width: size, height: size, correctLevel: QRCode.CorrectLevel.M }); };
     if (window.QRCode) return draw();
@@ -606,7 +596,6 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
       rc.onclick = () => copy(rdCmd(rdBatches[rdIdx]), "域名优选命令");
       body.querySelector("#tlRdNext").onclick = () => { rdIdx = (rdIdx + 1) % rdBatches.length; if (!rdIdx) rdBatches = shuffle(rdBatches); body.querySelector("#tlRd").textContent = rdCmd(rdBatches[rdIdx]); body.querySelector("#tlRdN").textContent = rdIdx + 1; };
     }
-    const si = body.querySelector("#tlSocks"); if (si) { si.oninput = () => socks(si.value.trim()); si.focus(); }
     const nq = body.querySelector("#tlNodeQR"); if (nq && FREENODE.url) qr(nq, FREENODE.url, 100);
   }
   document.addEventListener("click", e => {
