@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>chatgpt-codex客户端使用方法</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0b0b0f;
+    color: #e8e8ec;
+    font-family: -apple-system, "Microsoft YaHei", "PingFang SC", sans-serif;
+    line-height: 1.7;
+    padding-bottom: 60px;
+  }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+  .hero { text-align: center; padding: 70px 0 40px; }
+  .hero h1 { font-size: 32px; font-weight: 700; margin-bottom: 14px; }
+  .hero p { color: #9a9aa5; font-size: 15px; margin-bottom: 28px; }
+  .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 11px 26px; border-radius: 8px;
+    text-decoration: none; font-size: 14px; font-weight: 500;
+    transition: all .2s; cursor: pointer; border: none;
+  }
+  .btn-primary { background: #fff; color: #0b0b0f; }
+  .btn-primary:hover { background: #e0e0e0; }
+  .btn-ghost { background: transparent; color: #e8e8ec; border: 1px solid #333; }
+  .btn-ghost:hover { border-color: #666; }
+  .btn-copy { background: #2563eb; color: #fff; padding: 9px 20px; font-size: 13px; }
+  .btn-copy:hover { background: #1d4ed8; }
+
+  .section { margin-top: 40px; }
+  .num { color: #555; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .section h2 { font-size: 22px; margin-bottom: 10px; }
+  .section .desc { color: #9a9aa5; font-size: 14px; margin-bottom: 20px; }
+
+  .card {
+    background: #16161c; border: 1px solid #23232c; border-radius: 12px;
+    padding: 24px; margin-bottom: 16px;
+  }
+
+  video { width: 100%; border-radius: 10px; background: #000; display: block; }
+
+  .tags { display: flex; gap: 10px; flex-wrap: wrap; }
+  .tag {
+    padding: 6px 16px; border-radius: 6px; background: #1f1f27;
+    border: 1px solid #2a2a35; font-size: 13px; color: #ccc;
+  }
+
+  .code-row { display: flex; gap: 10px; align-items: center; }
+  .code-block {
+    flex: 1; background: #000; border: 1px solid #23232c; border-radius: 10px;
+    padding: 14px 16px; font-family: Consolas, Monaco, monospace;
+    font-size: 13px; color: #7ee787; overflow-x: auto; white-space: nowrap;
+  }
+
+  .link-row { margin-top: 14px; }
+  .link-row a { color: #6ea8ff; text-decoration: none; font-size: 14px; }
+  .link-row a:hover { text-decoration: underline; }
+
+  .download-item { display: flex; align-items: center; gap: 16px; }
+  .download-item img {
+    width: 48px; height: 48px; border-radius: 10px; flex-shrink: 0; background: #222;
+  }
+  .download-item .info { flex: 1; }
+  .download-item .info .name { font-size: 15px; font-weight: 600; }
+  .download-item .info .os { font-size: 12px; color: #888; margin: 2px 0; }
+  .download-item .info .tip { font-size: 13px; color: #9a9aa5; }
+
+  .card-title { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 24px; }
+    .section h2 { font-size: 19px; }
+    .code-row { flex-direction: column; align-items: stretch; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <h1>chatgpt-codex客户端使用方法</h1>
+    <p>按顺序完成下载、注册、安全设置与登录，即可正常使用 ChatGPT / Codex 客户端。</p>
+    <div class="btn-group">
+      <a class="btn btn-primary" href="https://chat.openai.com" target="_blank" rel="noopener">打开 ChatGPT 网页版</a>
+      <a class="btn btn-ghost" href="https://chatgpt.com/download" target="_blank" rel="noopener">客户端下载</a>
+      <a class="btn btn-ghost" href="../index.html">返回首页</a>
+    </div>
+  </div>
+
+  <!-- 01 视频教程 -->
+  <div class="section">
+    <div class="num">01</div>
+    <h2>视频教程</h2>
+    <p class="desc">按视频步骤完成下载、注册与登录，看完即可上手。</p>
+    <div class="card">
+      <video controls autoplay playsinline webkit-playsinline><source src="../assets/video/video4.mp4" type="video/mp4"><source src="../assets/video/video4.webm" type="video/webm">您的浏览器不支持视频播放，请更换 Chrome / Edge 浏览器或刷新重试</video>
+    </div>
+  </div>
+
+  <!-- 02 下载 -->
+  <div class="section">
+    <div class="num">02</div>
+    <h2>下载（微软应用商店下载）</h2>
+    <p class="desc">打开 Windows 自带的「Microsoft Store 微软应用商店」，搜索 ChatGPT（含 Codex），点安装即可。</p>
+    <div class="card">
+      <div class="tags">
+        <span class="tag">Microsoft Store</span>
+        <span class="tag">搜索 ChatGPT</span>
+        <span class="tag">官方安装包</span>
+      </div>
+      <div class="link-row">
+        <a href="https://chatgpt.com/download" target="_blank" rel="noopener">商店打不开？用官方下载页 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 注册 -->
+  <div class="section">
+    <div class="num">03</div>
+    <h2>注册（用网页版注册）</h2>
+    <p class="desc">先到网页版注册账号，邮箱类型都可以用（QQ 邮箱、Gmail、Outlook 等均可）。</p>
+    <div class="card">
+      <div class="code-row">
+        <div class="code-block">https://chat.openai.com</div>
+        <button class="btn btn-copy" onclick="copyBlock(this)">复制链接</button>
+      </div>
+      <div class="link-row">
+        <a href="https://chat.openai.com" target="_blank" rel="noopener">打开注册页面 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 身份认证器 -->
+  <div class="section">
+    <div class="num">04</div>
+    <h2>设置身份认证器</h2>
+    <p class="desc">开启两步验证，保护账号安全。手机先安装 Authenticator 类应用，再按网页提示扫码或输入密钥绑定。</p>
+    <div class="card">
+      <div class="tags">
+        <span class="tag">手机安装 Authenticator</span>
+        <span class="tag">两步验证</span>
+        <span class="tag">扫码绑定</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 客户端登录 -->
+  <div class="section">
+    <div class="num">05</div>
+    <h2>客户端登录 ChatGPT</h2>
+    <p class="desc">打开客户端，选择「Sign in with ChatGPT」，用刚注册的账号在浏览器里授权登录即可。</p>
+    <div class="card">
+      <div class="card-title">如果登录时要求手机号验证</div>
+      <p class="desc" style="margin:0">优先尝试：先在网页版确认账号可正常登录，再用客户端走「浏览器授权」方式登录；若仍提示需要手机验证，可按页面指引完成验证，或查看上方视频教程里的操作演示。</p>
+    </div>
+  </div>
+
+  <!-- 06 重连问题 -->
+  <div class="section">
+    <div class="num">06</div>
+    <h2>新窗口频繁重连的解决办法</h2>
+    <div class="card">
+      <p class="desc" style="margin:0">codex五次重连助手迅雷下载链接：<a href="https://pan.xunlei.com/s/VP5z6uWv7MJJvY0KFSrDY1K5A1?pwd=ijjm#" target="_blank" rel="noopener">https://pan.xunlei.com/s/VP5z6uWv7MJJvY0KFSrDY1K5A1?pwd=ijjm#</a></p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function copyBlock(btn) {
+  var row = btn.parentElement;
+  var block = row ? row.querySelector('.code-block') : null;
+  var text = block ? block.innerText : '';
+  navigator.clipboard.writeText(text).then(function() {
+    var old = btn.innerText;
+    btn.innerText = '已复制 ✓';
+    setTimeout(function(){ btn.innerText = old; }, 1500);
+  });
+}
+</script>
+
+</body>
+</html>
