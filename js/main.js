@@ -76,7 +76,7 @@ const CHECK_SECS = [
 ];
 
 const DL_ITEMS = [
-  { name: "karing", url: "https://karing.app", desc: "安卓 / ios / Windows / Mac 客户端,官方发布页" },
+  { name: "karing", url: "https://karing.app/download", desc: "安卓 / ios / Windows / Mac 客户端,官方发布页" },
   { name: "工具合集", url: "https://huarun.win", desc: "大师整理的，里面包括所有节点工具下载方式" },
   { name: "Finalshell SSH 工具", url: "https://www.hostbuf.com/", desc: "SSH 连接与服务器管理工具" },
 ];
