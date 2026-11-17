@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1对1 服务 · 黑彧导航</title>
+<meta name="description" content="站长黑彧 1对1 远程带你做通跨境：节点搭建、TikTok 环境、海外手机号、港卡与跨境支付、AI 工具、建站与自动化。¥2999，送引力魔方软路由（工作室版）。">
+<link rel="stylesheet" href="css/style.css?v=16">
+<style>
+/* ═══ 1对1 服务页（照 3yuedaohang.com/coach-v8.html 1:1 复刻） ═══
+   金色 = 付费服务，只用在价格和预约按钮上。
+   本站变量名 → 原站变量名别名，类名保持 ch- 前缀不与全站规则重名。 */
+:root{--gd:240,180,60;--bg-card:var(--card);--ink-2:var(--ink2);--ink-3:var(--ink3);--line-2:var(--line2)}
+
+.ch-hero{position:relative;overflow:hidden;padding:56px 0 64px;border-bottom:1px solid var(--line)}
+.ch-hero::before{content:"";position:absolute;inset:-20% -10% auto 40%;height:140%;z-index:0;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(var(--gd),.16),transparent 70%)}
+.ch-in{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:48px;align-items:center}
+.ch-kick{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;color:#f6d28a;padding:6px 14px;border-radius:999px;
+  border:1px solid rgba(var(--gd),.4);background:rgba(var(--gd),.08)}
+.ch-kick .ch-dot{width:22px;height:22px;border-radius:50%;flex-shrink:0;
+  background:radial-gradient(circle at 35% 30%,#ffe3a6,#f0b43c 60%,#a86a10);
+  box-shadow:0 0 14px rgba(var(--gd),.55)}
+.ch-h{margin:20px 0 0;font-family:"STXingkai","华文行楷","Ma Shan Zheng","KaiTi","楷体",cursive;font-weight:400;
+  font-size:clamp(42px,5vw,72px);line-height:1.12;letter-spacing:.06em;
+  background:linear-gradient(90deg,#fff,#ffe3a6 60%,#f0b43c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ch-sub{margin:18px 0 0;font-size:17px;line-height:1.85;color:#c3cbe6;max-width:34em}
+.ch-sub b{color:#fff}
+.ch-buy{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap;margin-top:30px}
+.ch-price{display:flex;align-items:baseline;gap:6px;color:#fff;line-height:1}
+.ch-price i{font-style:normal;font-size:26px;font-weight:800;color:#f6d28a}
+.ch-price b{font-size:clamp(56px,6vw,84px);font-weight:900;letter-spacing:-.02em;
+  background:linear-gradient(180deg,#fff3d1,#f0b43c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ch-price small{font-size:14px;color:var(--ink-2);margin-left:6px}
+.btn-gold{background:linear-gradient(100deg,#ffd56b,#f0a028);color:#1a1204;font-weight:800;box-shadow:0 8px 30px rgba(var(--gd),.38)}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 12px 36px rgba(var(--gd),.55)}
+.btn-lg{height:50px;padding:0 30px;font-size:15.5px}
+.ch-note{margin-top:14px;font-size:13px;color:var(--ink-3)}
+.ch-gift{display:inline-block;line-height:1.6;margin-top:18px;padding:8px 14px;border-radius:999px;font-size:14px;color:#f6d28a;text-decoration:none;
+  background:rgba(var(--gd),.12);border:1px solid rgba(var(--gd),.4)}.ch-gift b{color:#fff;font-weight:700}.ch-gift:hover{background:rgba(var(--gd),.2)}
+
+/* 右边:视频封面墙,三行反向慢慢走 */
+.ch-wall{position:relative;overflow:hidden;height:460px;transform:rotate(-4deg);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.ch-row{display:flex;gap:14px;margin-bottom:14px;width:max-content;animation:chm var(--t,60s) linear infinite}
+.ch-row.r{animation-direction:reverse}
+.ch-row a{flex:none;display:block;width:240px;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 18px 40px -18px #000;position:relative}
+.ch-row a img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.ch-row a:hover img{transform:scale(1.06)}
+.ch-row a span{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 7px;font-size:12px;color:#fff;
+  background:linear-gradient(transparent,rgba(0,0,0,.85));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ch-wall:hover .ch-row{animation-play-state:paused}
+@keyframes chm{to{transform:translateX(-50%)}}
+
+/* 区块标题 */
+.ch-sec{padding:72px 0 0}
+.ch-sh{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.ch-sh h2{margin:0;font-size:clamp(28px,3vw,40px);font-weight:900;letter-spacing:.01em;color:#fff}
+.ch-sh p{margin:0;color:var(--ink-2);font-size:15px;max-width:36em;line-height:1.7}
+
+/* 会什么:6 块 */
+.ch-mods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.ch-mod{--ac:120,140,255;position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--line);background:var(--bg-card);
+  display:flex;flex-direction:column;min-height:420px}
+.ch-mod .cv{position:relative;height:150px;overflow:hidden;background:rgba(var(--ac),.12)}
+.ch-mod .cv img{width:100%;height:100%;object-fit:cover;opacity:.7;transition:transform .6s}
+.ch-mod:hover .cv img{transform:scale(1.05)}
+.ch-mod .cv::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--ac),.1),var(--bg-card) 96%)}
+.ch-mod .ic{position:absolute;z-index:2;left:20px;bottom:-4px;width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+  background:rgb(var(--ac));color:#070a18;box-shadow:0 10px 26px -8px rgba(var(--ac),.9)}
+.ch-mod .ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ch-mod .bd{padding:22px 20px 18px;display:flex;flex-direction:column;flex:1}
+.ch-mod h3{margin:0;font-size:21px;font-weight:800;color:#fff}
+.ch-mod .one{margin:6px 0 12px;font-size:13.5px;color:rgba(var(--ac),1);filter:brightness(1.35)}
+.ch-mod ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+.ch-mod li{position:relative;padding-left:16px;font-size:14px;line-height:1.6;color:#cdd4ec}
+.ch-mod li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:2px;background:rgb(var(--ac))}
+.ch-mod .vs{margin-top:auto;margin-bottom:0;padding-top:14px;display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--ink-2)}
+.ch-mod .vs a{color:#e9edfa;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(var(--ac),.7)}
+.ch-mod .vs a:hover{color:#fff}
+
+/* ¥2999 包含什么 */
+.ch-offer{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:0;border-radius:22px;overflow:hidden;
+  border:1px solid rgba(var(--gd),.42);background:linear-gradient(135deg,rgba(var(--gd),.1),rgba(11,16,32,.9) 45%)}
+.ch-offer .l{padding:34px 34px 30px}
+.ch-offer .r{padding:34px;border-left:1px solid rgba(var(--gd),.22);background:rgba(5,7,14,.45);display:flex;flex-direction:column}
+.ch-inc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:16px 26px}
+.ch-inc li:last-child:nth-child(odd){grid-column:1/-1}
+.ch-inc li{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start}
+.ch-inc li i{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:rgba(var(--gd),.16);color:#f6d28a;font-style:normal;font-weight:800;font-size:14px}
+.ch-inc b{display:block;color:#fff;font-size:15.5px;margin-bottom:3px}
+.ch-inc span{font-size:13.5px;color:var(--ink-2);line-height:1.6}
+.ch-offer .r .ch-price b{font-size:64px}
+.ch-offer .r p{margin:14px 0 0;font-size:13.5px;color:var(--ink-2);line-height:1.75}
+.ch-offer .r .btn{margin-top:auto;width:100%}
+.ch-offer .r .ch-note{text-align:center}
+
+/* 流程 */
+.ch-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;counter-reset:s;position:relative;margin:0;padding:0}
+.ch-steps li{list-style:none;position:relative;padding:0 22px 0 0}
+.ch-steps li::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;
+  font-weight:900;font-size:18px;color:#1a1204;background:linear-gradient(140deg,#ffd56b,#f0a028);position:relative;z-index:1}
+.ch-steps li::after{content:"";position:absolute;left:44px;right:0;top:22px;height:1px;background:linear-gradient(90deg,rgba(var(--gd),.6),rgba(var(--gd),.1))}
+.ch-steps li:last-child::after{display:none}
+.ch-steps b{display:block;margin:14px 0 6px;font-size:17px;color:#fff}
+.ch-steps span{font-size:14px;line-height:1.7;color:var(--ink-2)}
+
+/* 适合 / 不接 */
+.ch-fit{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ch-fit > div{border-radius:18px;border:1px solid var(--line);background:var(--bg-card);padding:26px 26px 22px}
+.ch-fit h3{margin:0 0 14px;font-size:19px;color:#fff;display:flex;align-items:center;gap:10px}
+.ch-fit h3 em{font-style:normal;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:14px}
+.ch-fit .ok h3 em{background:rgba(52,211,153,.18);color:#6ee7b7}
+.ch-fit .no h3 em{background:rgba(248,113,113,.16);color:#fca5a5}
+.ch-fit ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.ch-fit li{font-size:14.5px;line-height:1.65;color:#cdd4ec;padding-left:16px;position:relative}
+.ch-fit li::before{content:"";position:absolute;left:0;top:.7em;width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.5}
+
+/* 常见问题 */
+.ch-faq{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px}
+.ch-faq details{border-radius:14px;border:1px solid var(--line);background:var(--bg-card);padding:0 20px}
+.ch-faq summary{cursor:pointer;list-style:none;padding:17px 26px 17px 0;font-size:15.5px;font-weight:700;color:#fff;position:relative}
+.ch-faq summary::-webkit-details-marker{display:none}
+.ch-faq summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:22px;font-weight:400;color:#f6d28a;transition:transform .25s}
+.ch-faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.ch-faq details p{margin:0 0 18px;font-size:14.5px;line-height:1.8;color:#b9c3e0}
+.ch-faq summary:focus-visible,.ch-mod .vs a:focus-visible,.ch-row a:focus-visible{outline:2px solid #f6d28a;outline-offset:3px;border-radius:6px}
+
+/* 底部 */
+.ch-end{margin:80px 0 70px;border-radius:24px;padding:46px 40px;text-align:center;position:relative;overflow:hidden;
+  background:radial-gradient(120% 140% at 50% 0%,rgba(var(--gd),.2),rgba(11,16,32,.95) 60%);border:1px solid rgba(var(--gd),.35)}
+.ch-end h2{margin:0;font-size:clamp(26px,3vw,38px);color:#fff;font-weight:900}
+.ch-end p{margin:12px auto 26px;color:#c3cbe6;font-size:15.5px;max-width:34em;line-height:1.8}
+.ch-end .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:0;border:0}
+.btn-ghost-l{border-color:rgba(150,170,230,.34);color:var(--ink)}
+.btn-ghost-l:hover{border-color:#93a3d4}
+
+@media (max-width:1080px){
+  .ch-in{grid-template-columns:minmax(0,1fr);gap:34px}
+  .ch-wall{height:300px}
+  .ch-mods{grid-template-columns:1fr 1fr}
+  .ch-offer{grid-template-columns:1fr}.ch-offer .r{border-left:0;border-top:1px solid rgba(var(--gd),.22)}
+  .ch-steps{grid-template-columns:1fr 1fr;gap:30px 0}
+  .ch-steps li:nth-child(2)::after{display:none}
+}
+@media (max-width:700px){
+  .ch-hero{padding:34px 0 40px}
+  .ch-wall{height:230px;transform:rotate(-3deg)}
+  .ch-row a{width:170px}
+  .ch-mods,.ch-fit,.ch-faq{grid-template-columns:1fr}
+  .ch-mod{min-height:0}
+  .ch-inc{grid-template-columns:1fr}
+  .ch-offer .l,.ch-offer .r{padding:24px 20px}
+  .ch-steps{grid-template-columns:1fr;gap:22px}
+  .ch-steps li{padding:0 0 0 60px;min-height:44px}
+  .ch-steps li::before{position:absolute;left:0;top:0}
+  .ch-steps li::after{display:none}
+  .ch-steps b{margin-top:8px}
+  .ch-sec{padding-top:52px}
+  .ch-end{padding:34px 20px;margin:56px 0 48px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ 顶栏（与本站首页一致） ═══ -->
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="mk" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#8a6bff"/><stop offset="1" stop-color="#4f8bff"/>
+          </linearGradient>
+        </defs>
+        <rect x="2" y="2" width="36" height="36" rx="11" fill="url(#mk)"/>
+        <path d="M11 14.5h18M11 20.5h13M11 26.5h8" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <span class="bt"><b>黑彧导航</b><small>HEIYU NAVIGATION</small></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="index.html">资源导航</a>
+      <a href="index.html#picks">最新动态</a>
+      <a href="video.html">视频教程</a>
+      <a href="coach.html" aria-current="page">1对1</a>
+      <a href="index.html#sq">站长社群</a>
+    </nav>
+    <div class="ops">
+      <a class="oldsite-btn" href="https://hy.hy88.de" target="_blank" rel="noopener" title="老网站入口">老网站入口 ↗</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="ch-hero">
+  <div class="wrap ch-in">
+    <div>
+      <span class="ch-kick"><i class="ch-dot"></i>站长黑彧 · 1对1 远程</span>
+      <h1 class="ch-h">跨境这件事，<br>我陪你做通</h1>
+      <p class="ch-sub">节点、TikTok 环境、海外手机号、港卡、AI 工具、建站，视频里讲过的东西，<b>我远程连上你的电脑，一步步带你做出来</b>。不用自己反复踩坑，卡在哪儿当场解决。</p>
+      <div class="ch-buy">
+        <div class="ch-price"><i>¥</i><b>2999</b><small>一次买断</small></div>
+        <a class="btn btn-lg btn-gold" href="index.html#sq">预约 1对1</a>
+      </div>
+      <span class="ch-gift">🎁&nbsp;送<b>引力魔方软路由</b>一台（工作室版，价值 ¥599）</span>
+      <p class="ch-note">先免费聊需求，确认我能帮上再付款。</p>
+    </div>
+    <div class="ch-wall" aria-label="站长做过的教程视频">
+      <div class="ch-row" style="--t:50s">
+        <a href="video.html"><img src="assets/img/ip.jpg" alt=""><span>跨境网络 · 节点搭建</span></a>
+        <a href="video.html"><img src="assets/img/hero.jpg" alt=""><span>TikTok 环境 · 矩阵</span></a>
+        <a href="video.html"><img src="assets/img/ip.jpg" alt=""><span>跨境网络 · 节点搭建</span></a>
+        <a href="video.html"><img src="assets/img/hero.jpg" alt=""><span>TikTok 环境 · 矩阵</span></a>
+        <a href="video.html"><img src="assets/img/ip.jpg" alt=""><span>跨境网络 · 节点搭建</span></a>
+        <a href="video.html"><img src="assets/img/hero.jpg" alt=""><span>TikTok 环境 · 矩阵</span></a>
+        <a href="video.html"><img src="assets/img/ip.jpg" alt=""><span>跨境网络 · 节点搭建</span></a>
+        <a href="video.html"><img src="assets/img/hero.jpg" alt=""><span>TikTok 环境 · 矩阵</span></a>
+      </div>
+      <div class="ch-row r" style="--t:62s">
+        <a href="video.html"><img src="assets/img/hardware.jpg" alt=""><span>海外手机号 · 账号</span></a>
+        <a href="video.html"><img src="assets/img/account.jpg" alt=""><span>港卡 · 跨境支付</span></a>
+        <a href="video.html"><img src="assets/img/hardware.jpg" alt=""><span>海外手机号 · 账号</span></a>
+        <a href="video.html"><img src="assets/img/account.jpg" alt=""><span>港卡 · 跨境支付</span></a>
+        <a href="video.html"><img src="assets/img/hardware.jpg" alt=""><span>海外手机号 · 账号</span></a>
+        <a href="video.html"><img src="assets/img/account.jpg" alt=""><span>港卡 · 跨境支付</span></a>
+        <a href="video.html"><img src="assets/img/hardware.jpg" alt=""><span>海外手机号 · 账号</span></a>
+        <a href="video.html"><img src="assets/img/account.jpg" alt=""><span>港卡 · 跨境支付</span></a>
+      </div>
+      <div class="ch-row" style="--t:74s">
+        <a href="video.html"><img src="assets/img/v-cover-2.jpg" alt=""><span>AI 工具</span></a>
+        <a href="video.html"><img src="assets/img/map.jpg" alt=""><span>建站 · 自动化</span></a>
+        <a href="video.html"><img src="assets/img/v-cover-2.jpg" alt=""><span>AI 工具</span></a>
+        <a href="video.html"><img src="assets/img/map.jpg" alt=""><span>建站 · 自动化</span></a>
+        <a href="video.html"><img src="assets/img/v-cover-2.jpg" alt=""><span>AI 工具</span></a>
+        <a href="video.html"><img src="assets/img/map.jpg" alt=""><span>建站 · 自动化</span></a>
+        <a href="video.html"><img src="assets/img/v-cover-2.jpg" alt=""><span>AI 工具</span></a>
+        <a href="video.html"><img src="assets/img/map.jpg" alt=""><span>建站 · 自动化</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <!-- ═══ 我能教你的：6 块 ═══ -->
+  <section class="ch-sec" aria-labelledby="h-mods">
+    <div class="ch-sh"><h2 id="h-mods">我能教你的</h2><p>下面这些我都自己做过、拍成了视频。1对1 时按你的目标挑，混着来也行。</p></div>
+    <div class="ch-mods">
+
+      <article class="ch-mod" style="--ac:56,189,248">
+        <div class="cv"><img src="assets/img/ip.jpg" alt=""><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0116 0"/><path d="M7.5 12a4.5 4.5 0 019 0"/><circle cx="12" cy="12" r="1.5"/><path d="M12 13.5V20"/></svg></span></div>
+        <div class="bd"><h3>跨境网络 · 节点搭建</h3><p class="one">自己的线路，稳定、不怕跑路</p>
+          <ul>
+            <li>VPS 选购、装系统、机房迁移</li>
+            <li>3X-UI / S-UI / 哆啦A梦魔改面板一键搭建</li>
+            <li>Reality 等 6 种协议，不用域名</li>
+            <li>中转、ISP 中转、多服务器统一管理</li>
+            <li>TMS 客户端：不敲命令也能搭</li>
+            <li>线路测速、提速，解锁 Claude / ChatGPT / Grok</li>
+          </ul>
+          <p class="vs"><a href="video.html" data-vcat="net">看相关视频</a><span class="cnt">共 0 节</span></p>
+        </div>
+      </article>
+
+      <article class="ch-mod" style="--ac:255,92,138">
+        <div class="cv"><img src="assets/img/hero.jpg" alt=""><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 11-3.5-3.5"/><path d="M14 4c.5 2.4 2.2 4 5 4.2"/></svg></span></div>
+        <div class="bd"><h3>TikTok 环境 · 矩阵</h3><p class="one">原生环境，不跳真实性</p>
+          <ul>
+            <li>刷机、下载、配网，PC 端和手机端</li>
+            <li>家庭宽带 / 住宅 IP 的原生环境</li>
+            <li>软路由多 WiFi、一机一 IP</li>
+            <li>直播环境：台湾、东南亚线路</li>
+            <li>指纹浏览器、云手机怎么选</li>
+            <li>IP 伪装度检测，判断能不能用</li>
+          </ul>
+          <p class="vs"><a href="video.html" data-vcat="tk">看相关视频</a><span class="cnt">共 0 节</span></p>
+        </div>
+      </article>
+
+      <article class="ch-mod" style="--ac:52,211,153">
+        <div class="cv"><img src="assets/img/hardware.jpg" alt=""><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2.5"/><path d="M10.5 17.5h3"/></svg></span></div>
+        <div class="bd"><h3>海外手机号 · 账号</h3><p class="one">跨境业务的第一步</p>
+          <ul>
+            <li>Xesim、ClubSim 实体 / eSIM 海外号</li>
+            <li>长期保号，收验证码</li>
+            <li>注册海外社媒、AI 账号不被风控</li>
+            <li>TikTok 业务选哪种号</li>
+          </ul>
+          <p class="vs"><a href="video.html" data-vcat="sim">看相关视频</a><span class="cnt">共 0 节</span></p>
+        </div>
+      </article>
+
+      <article class="ch-mod" style="--ac:240,180,60">
+        <div class="cv"><img src="assets/img/account.jpg" alt=""><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18M7 15h4"/></svg></span></div>
+        <div class="bd"><h3>港卡 · 跨境支付</h3><p class="one">国内卡用不了的地方，换条路付</p>
+          <ul>
+            <li>众安等港卡：过关、开户、领奖励全流程</li>
+            <li>港卡绑微信 / 支付宝</li>
+            <li>美元虚拟卡：订阅 AI 不再付款失败</li>
+            <li>USDT + Bybit 卡全球支付</li>
+            <li>收款、付款怎么搭配最省</li>
+          </ul>
+          <p class="vs"><a href="video.html" data-vcat="pay">看相关视频</a><span class="cnt">共 0 节</span></p>
+        </div>
+      </article>
+
+      <article class="ch-mod" style="--ac:157,124,255">
+        <div class="cv"><img src="assets/img/v-cover-2.jpg" alt=""><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8z"/></svg></span></div>
+        <div class="bd"><h3>AI 工具</h3><p class="one">注册、付款、用起来</p>
+          <ul>
+            <li>ChatGPT、Claude、Grok、Gemini 注册和订阅</li>
+            <li>Meta Muse 等新 AI 抢先用</li>
+            <li>Claude Code 写代码、做网站</li>
+            <li>AI 视频创作、程序化做视频</li>
+            <li>选适合你业务的 AI 工具</li>
+          </ul>
+          <p class="vs"><a href="video.html" data-vcat="ai">看相关视频</a><span class="cnt">共 0 节</span></p>
+        </div>
+      </article>
+
+      <article class="ch-mod" style="--ac:79,139,255">
+        <div class="cv"><img src="assets/img/map.jpg" alt=""><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/><path d="M8 13l2 2-2 2M13 17h3"/></svg></span></div>
+        <div class="bd"><h3>建站 · 自动化</h3><p class="one">像这个网站一样，自己的一套</p>
+          <ul>
+            <li>导航站 / 独立站：域名、Cloudflare、上线</li>
+            <li>登录注册、会员、视频播放、留言</li>
+            <li>邮件群发、来源统计、数据看板</li>
+            <li>n8n 自动化工作流</li>
+            <li>用 AI 写代码，自己改得动</li>
+          </ul>
+          <p class="vs">你正在看的这个网站，就是这么搭出来的</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══ ¥2999 包含什么 ═══ -->
+  <section class="ch-sec" aria-labelledby="h-offer">
+    <div class="ch-sh"><h2 id="h-offer">¥2999 包含什么</h2></div>
+    <div class="ch-offer">
+      <div class="l">
+        <ul class="ch-inc">
+          <li><i>1</i><div><b>2 次远程，每次 1~2 小时</b><span>屏幕共享，我看着你的电脑操作，或者直接帮你操作。</span></div></li>
+          <li><i>2</i><div><b>后续问题我来处理</b><span>远程做完之后，用的过程中出了问题，Telegram / WhatsApp 发我，帮你处理。</span></div></li>
+          <li><i>3</i><div><b>按你的情况定路线</b><span>先了解你要做什么、预算多少，再定先做哪块、用什么方案。</span></div></li>
+          <li><i>4</i><div><b>每次远程录屏给你</b><span>做过的步骤留着，以后换电脑、换服务器照着做。</span></div></li>
+          <li><i>5</i><div><b>6 块方向不限</b><span>节点、TikTok、手机号、支付、AI、建站，一次讲透一块或几块都行。</span></div></li>
+          <li><i>6</i><div><b>送一台引力魔方软路由</b><span>工作室版（价值 ¥599），最多 10 台设备一起用，配上你自己的线路就能一机一 IP；付款后寄给你，远程时帮你配好。</span></div></li>
+        </ul>
+      </div>
+      <div class="r">
+        <div class="ch-price"><i>¥</i><b>2999</b></div>
+        <p>软路由送你；VPS、手机号、开卡这类第三方费用由你自己付，我只推荐、不代购、不加价。</p>
+        <p style="margin-bottom:22px">付款前先免费聊一次需求，我判断能不能帮上；帮不上的直接说，不收钱。</p>
+        <a class="btn btn-lg btn-gold" href="index.html#sq">预约 1对1</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 怎么进行 ═══ -->
+  <section class="ch-sec" aria-labelledby="h-steps">
+    <div class="ch-sh"><h2 id="h-steps">怎么进行</h2></div>
+    <ol class="ch-steps">
+      <li><b>联系我</b><span>Telegram、WhatsApp、邮件或站内私信都行，说一下你想做什么。</span></li>
+      <li><b>免费聊需求</b><span>15 分钟左右，我判断能不能帮上、大概要用到哪些东西。</span></li>
+      <li><b>付款、约时间</b><span>确认后付款，约第一次远程。需要提前买的东西我先列给你。</span></li>
+      <li><b>远程做通</b><span>2 次远程把你选的目标做出来，之后用的过程中有问题随时找我。</span></li>
+    </ol>
+  </section>
+
+  <!-- ═══ 先看合不合适 ═══ -->
+  <section class="ch-sec" aria-labelledby="h-fit">
+    <div class="ch-sh"><h2 id="h-fit">先看合不合适</h2></div>
+    <div class="ch-fit">
+      <div class="ok"><h3><em>✓</em>适合你</h3><ul>
+        <li>看了视频还是搭不起来，或者搭好了不稳定</li>
+        <li>准备做 TikTok / 跨境，想一次把网络、手机号、支付准备齐</li>
+        <li>想用 Claude、ChatGPT 这些 AI，卡在注册和付款</li>
+        <li>想搭一个自己的网站，带登录、视频、会员</li>
+        <li>时间比钱贵，不想自己一点点试</li>
+      </ul></div>
+      <div class="no"><h3><em>×</em>这些我不接</h3><ul>
+        <li>绕过平台规则刷量、批量养号、灰产引流</li>
+        <li>买卖账号、个人信息，或者任何违法的用途</li>
+        <li>保证赚多少钱：我教方法和工具，结果看你自己做</li>
+        <li>长期代运营：我教你做，不替你天天做</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <!-- ═══ 常见问题 ═══ -->
+  <section class="ch-sec" aria-labelledby="h-faq">
+    <div class="ch-sh"><h2 id="h-faq">常见问题</h2></div>
+    <div class="ch-faq">
+      <details><summary>完全小白能学会吗？</summary><p>能。远程时你看着我操作、或者我直接在你电脑上操作，你不需要懂代码。最后我会确认你自己能照着重做一遍。</p></details>
+      <details><summary>远程用什么软件？</summary><p>ToDesk、向日葵或腾讯会议的屏幕共享都可以，约时间时说你习惯用哪个。</p></details>
+      <details><summary>需要额外花多少钱？</summary><p>看你选的方向。比如一台 VPS 每月几十元起，海外手机号、港卡开户各有各的费用；软路由送你，不用另买。第一次聊的时候我会按你的预算列出来，你决定买不买。</p></details>
+      <details><summary>2 次远程之后还有问题怎么办？</summary><p>直接在 Telegram / WhatsApp 上发我，后续遇到的问题我帮你处理，不另收费。</p></details>
+      <details><summary>能开发票或者对公吗？</summary><p>联系时说明，按你的情况沟通。</p></details>
+      <details><summary>可以只学其中一块吗？</summary><p>可以。价格一样，时间全用在那一块上，讲得更深。</p></details>
+    </div>
+  </section>
+
+  <!-- ═══ 底部 CTA ═══ -->
+  <section class="ch-end">
+    <h2>说说你想做什么</h2>
+    <p>先免费聊，能帮上再付款。Telegram、WhatsApp 回得最快。</p>
+    <div class="row">
+      <a class="btn btn-lg btn-gold" href="index.html#sq">预约 1对1 · ¥2999</a>
+      <a class="btn btn-lg btn-ghost-l" href="video.html">先去看免费视频</a>
+    </div>
+  </section>
+</div>
+</main>
+
+<!-- ═══ 页脚（与本站首页一致） ═══ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-in">
+      <span class="tip">本站为开源学习模板，页面内全部条目均为示例数据。</span>
+      <nav class="foot-links">
+        <a href="index.html">关于本站</a>
+        <a href="index.html#sq">站长社群</a>
+      </nav>
+    </div>
+    <div class="copy">
+      <span>© <span id="year"></span> HEIYU Navigation</span>
+      <span>黑彧科技 · 专业解决各类国外软件的登录问题</span>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<!-- 视频数据与视频教程页共用 js/data-videos.js：加视频只改那一处，这里「共 N 节」自动更新 -->
+<script src="js/data-videos.js?v=1"></script>
+<script>
+(function () {
+  var MAP = { net: "c2", tk: "c3", sim: "c4", pay: "c6", ai: "c5" };
+  var V = window.SITE_VIDEOS || [];
+  document.querySelectorAll("[data-vcat]").forEach(function (a) {
+    var cid = MAP[a.getAttribute("data-vcat")] || "";
+    if (!cid) return;
+    var n = V.filter(function (v) { return v.cid === cid; }).length;
+    a.href = "video.html?cat=" + encodeURIComponent(cid); // 直接进对应分类
+    var s = a.parentNode.querySelector(".cnt");
+    if (s) s.textContent = "共 " + n + " 节";
+  });
+})();
+</script>
+</body>
+</html>

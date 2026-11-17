@@ -364,6 +364,7 @@ body.admin .ph .ops{display:flex}
       <a href="index.html">资源导航</a>
       <a href="index.html#picks">最新动态</a>
       <a href="video.html" aria-current="page">视频教程</a>
+      <a href="coach.html">1对1</a>
       <a href="index.html#sq">站长社群</a>
     </nav>
     <div class="ops">
@@ -421,6 +422,7 @@ body.admin .ph .ops{display:flex}
   </div>
 </div>
 
+<script src="js/data-videos.js?v=1"></script>
 <script>
 /* ═══ 视频页 v8 逻辑（照原站 video-v8.html；Supabase/站长后台部分替换为：
    数据内嵌快照、分类存 localStorage、播放改为弹层） ═══ */
@@ -428,12 +430,9 @@ body.admin .ph .ops{display:flex}
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-/* ── 数据:站内视频(assets/video/ 内置 mp4,上传 GitHub Pages 即可直接播放) ──
+/* ── 数据:读共用数据文件 js/data-videos.js（与 1对1 页同一份，加视频只改那里） ──
    mp4 = 站内视频文件路径;播放弹层直接内嵌 <video> 播放 ── */
-const VIDS = [
-{ id:"fangfa2", vid:"", cid:"c2", title:"3XUI面板搭建与中转教程，魔改版一键安装，稳定安全，个人独享网络节点搭建，新手一学就会", cover_url:"assets/img/v-cover-2.jpg", duration:657, view_count:0, sort_order:3, is_free:true, badge:"新上架", highlight:true, category:"精华课程", created_at:"2026-10-12", mp4:"assets/video/video2.mp4" },
-{ id:"fangfa1", vid:"", cid:"c2", title:"一键搭建节点教程，个人独享，无需面板配置，搭建即用，多协议选择，可共存", cover_url:"assets/img/v-cover-1.jpg", duration:495, view_count:0, sort_order:2, is_free:true, badge:"精品", highlight:false, category:null, created_at:"2026-10-12", mp4:"assets/video/yijiandajian.mp4" },
-];
+const VIDS = window.SITE_VIDEOS || [];
 
 /* ── 两个教程视频 → 跳 hy.hy88.de 同款独立教程页(视频+文字步骤+命令+下载) ── */
 const TUTORIAL_PAGE = { fangfa1: "docs/video1.html", fangfa2: "docs/video2.html" };
@@ -445,17 +444,10 @@ const durFmt = s => s ? `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")
 const views = n => !n ? "" : n >= 1000 ? `${(n / 1000).toFixed(n >= 10000 ? 0 : 1)}k 次播放` : `${n} 次播放`;
 const BADGE = { "精品": "gold", "热门": "hot", "新上架": "new" };
 
-/* ── 分类:与原站 video_categories 表完全一致(2026-10-12 拉取);本地管理模式可改,仅本机可见 ── */
+/* ── 分类:读共用数据文件;本地管理模式可改,仅本机可见 ── */
 const PALETTE = ["157,124,255", "244,114,182", "52,211,153", "56,189,248", "251,166,72", "96,165,250", "251,191,36"];
-const DEFAULT_CATS = [
-  { id: "c1", name: "新手必看", desc: "新建的分类，把视频拖进来。", ac: "96,165,250" },
-  { id: "c2", name: "节点搭建与中转", desc: "面板、协议、中转：自己搭一条稳定的线路。", ac: "157,124,255" },
-  { id: "c3", name: "Tiktok基础", desc: "原生环境、直播提速、一机一 IP，到账号运营。", ac: "244,114,182" },
-  { id: "c4", name: "海外手机号", desc: "新建的分类，把视频拖进来。", ac: "56,189,248" },
-  { id: "c5", name: "AI 智能", desc: "新建的分类，把视频拖进来。", ac: "251,166,72" },
-  { id: "c6", name: "海外银行卡", desc: "新建的分类，把视频拖进来。", ac: "96,165,250" },
-];
-const KEY = "v8-video-cats-mine-1"; // 本站自己的分类键,与旧的 14 节缓存完全隔离
+const DEFAULT_CATS = window.SITE_CATS || [];
+const KEY = "v8-video-cats-mine-2"; // 本站自己的分类键(升版本,让新分类名生效)
 let ST;
 try { ST = JSON.parse(localStorage.getItem(KEY)) || null; } catch (e) { ST = null; }
 if (!ST || ST.v !== 1 || !Array.isArray(ST.cats)) ST = { v: 1, cats: JSON.parse(JSON.stringify(DEFAULT_CATS)), map: {} };
@@ -816,6 +808,9 @@ if (pm && VIDS.some(x => x.id === pm)) {
 })();
 
 /* ── 初始化 ── */
+/* 1对1 页「看相关视频」带分类进来：video.html?cat=c2 */
+const cat0 = new URLSearchParams(location.search).get("cat");
+if (cat0 && ST.cats.some(c => c.id === cat0)) CUR = cat0;
 feat();
 syncOne();
 render();
