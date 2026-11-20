@@ -237,15 +237,11 @@ if (pickList) {
         <span><b>TMS 节点指挥舱</b><small>站长自研 · 免费 · Windows 客户端</small></span></a>
       <p class="tmsk-lead">不用敲命令。搭节点、管车友、防封救急都在一个客户端里点，还带一组本机小工具和 AI 软件。</p>
       <span class="tmsk-up"><i></i>两个半月更新了 55 个版本，站长一直在维护</span>
-      <a class="tmsk-star" href="https://tms.zhanzhangsanyue.com/" target="_blank" rel="noopener">
-        <span class="tmsk-star-tg"><i></i>新上线 · 本地数字人</span>
-        <b>三月造片：数字人口播，自己电脑出</b>
-        <span class="tmsk-star-d">出图、改图、做数字人口播视频，都在自己电脑上生成，不按次收费。装在 TMS 里，注册登录就有一张免费体验券。</span>
-        <span class="tmsk-star-f"><em>需要 NVIDIA 显卡，显存 16G 以上</em><span class="tmsk-star-go">去官网看看</span></span>
+   
       </a>
       <div class="tmsk-tabs" role="tablist">${TMS.groups.map(([t], i) => `<button type="button" role="tab" data-g="${i}" aria-selected="${!i}">${esc(t)}<i></i></button>`).join("")}</div>
       <ul role="tabpanel"></ul>
-      <div class="tmsk-act"><a class="tmsk-go" href="${TMS.href}">了解并下载</a><a class="tmsk-vid" href="https://3yuedaohang.com/play-v8.html?v=${TMS.vid}" target="_blank" rel="noopener">▶ 看视频教程</a></div>
+      <div class="tmsk-act"><a class="tmsk-go" href="${TMS.href}">了解并下载</a><a class="tmsk-vid" href="https://github.com/Heiyukeji/Tms/releases" target="_blank" rel="noopener">▶ 看视频教程</a></div>
     </div>`;
   tmsTabs();
 }
