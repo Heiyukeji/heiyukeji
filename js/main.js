@@ -166,10 +166,10 @@ const TMS = {
       ["问 AI", "看不懂的文件夹、进程、报错，都能让 AI 解释"],
     ]],
     ["AI 软件", [
-      ["数字人口播", "三月造片：出图、改图、做口播视频，都在自己电脑上生成"],
-      ["视频翻译", "SanYue Studio：去字幕、识别台词、翻译、克隆声配音"],
-      ["视频复刻", "镜感，从 TMS 里直接打开"],
-      ["先测配置", "大软件安装前先查显卡、内存，不够会告诉你缺什么"],
+      ["无", "无"],
+      ["无", "无"],
+      ["无", "无"],
+      ["无", "无"],
     ]],
   ],
 };
@@ -220,7 +220,7 @@ if (pickList) {
       <a class="tmsk-h" href="${TMS.href}"><span class="tmsk-ic"><img src="assets/img/${TMS.logo}" alt=""></span>
         <span><b>TMS 节点指挥舱</b><small>站长自研 · 免费 · Windows 客户端</small></span></a>
       <p class="tmsk-lead">不用敲命令。搭节点、管车友、防封救急都在一个客户端里点，还带一组本机小工具和 AI 软件。</p>
-      <span class="tmsk-up"><i></i>两个半月更新了 55 个版本，站长一直在维护</span>
+      <span class="tmsk-up"><i></i>长期更新版本，站长一直在维护</span>
       <div class="tmsk-tabs" role="tablist">${TMS.groups.map(([t], i) => `<button type="button" role="tab" data-g="${i}" aria-selected="${!i}">${esc(t)}<i></i></button>`).join("")}</div>
       <ul role="tabpanel"></ul>
       <div class="tmsk-act"><a class="tmsk-go" href="${TMS.href}">了解并下载</a><a class="tmsk-vid" href="https://88.hy88.de/tms-download" rel="noopener">▶ 看视频教程</a></div>
