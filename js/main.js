@@ -151,7 +151,7 @@ const NEWS = [
 /* ── 三栏（无对应元素的页面自动跳过） ── */
 const pickList = $("#pickList");
 if (pickList) pickList.innerHTML = PICKS.map(p => `
-  <a class="row pk" href="#picks" style="--c:${p.c}">
+  <a class="row pk" href="https://88.hy88.de/" style="--c:${p.c}">
     <span class="pk-ic real${p.dk ? " dk" : ""}"><img src="assets/img/${p.lg}" alt="" loading="lazy"></span>
     <span class="nm"><b>${esc(p.t)}</b><i>${esc(p.d)}</i></span>
     <span class="pk-tag">${esc(p.tag)}</span>
@@ -159,7 +159,7 @@ if (pickList) pickList.innerHTML = PICKS.map(p => `
 
 const newsList = $("#newsList");
 if (newsList) newsList.innerHTML = NEWS.map(v => `
-  <a class="row" href="#">
+  <a class="row" href="https://88.hy88.de/">
     <span class="nw-th" style="--c:${v.c}"></span>
     <span class="nm"><b>${esc(v.t)}</b><i>${esc(v.ago)} · ${v.free ? "免费" : "会员"}</i></span>
   </a>`).join("");
