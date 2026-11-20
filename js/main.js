@@ -132,26 +132,27 @@ const LINKS = [
     ["Spotify", 140, "https://www.spotify.com/"], ["Twitch", 265, "https://www.twitch.tv/"]] },
 ];
 
-/* 站长推荐（lg = 真实产品 logo；dk = 深色底 logo） */
+/* 站长推荐（lg = 真实产品 logo；dk = 深色底 logo；u = 该条目的跳转链接，每条独立修改） */
 const PICKS = [
-  { t: "开源面板下载", d: "多台服务器统一管理，图形化操作，装好就能用。", tag: "站长自研", c: "157,124,255", lg: "real/tms-app.png" },
-  { t: "AI 助手注册", d: "个人助理，能写能画；新用户注册即送体验额度。", tag: "送体验额度", c: "244,114,182", lg: "links/meta.svg" },
-  { t: "视频复刻工具", d: "上传素材自动拆解分镜，一键生成同款短视频。", tag: "免费体验", c: "56,189,248", lg: "real/jinggan.svg", dk: 1 },
-  { t: "效率工具聚合", d: "常用小工具打包成一个启动器，付费版可商用。", tag: "付费 · 可商用", c: "255,196,92", lg: "real/usb.svg", dk: 1 },
+  { u: "https://88.hy88.de/", t: "开源面板下载", d: "多台服务器统一管理，图形化操作，装好就能用。", tag: "站长自研", c: "157,124,255", lg: "real/tms-app.png" },
+  { u: "https://88.hy88.de/", t: "AI 助手注册", d: "个人助理，能写能画；新用户注册即送体验额度。", tag: "送体验额度", c: "244,114,182", lg: "links/meta.svg" },
+  { u: "https://88.hy88.de/", t: "视频复刻工具", d: "上传素材自动拆解分镜，一键生成同款短视频。", tag: "免费体验", c: "56,189,248", lg: "real/jinggan.svg", dk: 1 },
+  { u: "https://88.hy88.de/", t: "效率工具聚合", d: "常用小工具打包成一个启动器，付费版可商用。", tag: "付费 · 可商用", c: "255,196,92", lg: "real/usb.svg", dk: 1 },
 ];
 
+/* 最新上架（u = 该条目的跳转链接，每条独立修改） */
 const NEWS = [
-  { t: "云服务器选购指南", ago: "6 天前", free: 1, c: "56,189,248" },
-  { t: "AI 绘画从零入门", ago: "8 天前", free: 1, c: "157,124,255" },
-  { t: "个人博客搭建全流程", ago: "2026/9/2", free: 1, c: "52,211,153" },
-  { t: "笔记软件横评", ago: "2026/7/1", free: 0, c: "251,166,72" },
-  { t: "短视频剪辑速成", ago: "2026/6/22", free: 1, c: "244,114,182" },
+  { u: "https://88.hy88.de/", t: "云服务器选购指南", ago: "6 天前", free: 1, c: "56,189,248" },
+  { u: "https://88.hy88.de/", t: "AI 绘画从零入门", ago: "8 天前", free: 1, c: "157,124,255" },
+  { u: "https://88.hy88.de/", t: "个人博客搭建全流程", ago: "2026/9/2", free: 1, c: "52,211,153" },
+  { u: "https://88.hy88.de/", t: "笔记软件横评", ago: "2026/7/1", free: 0, c: "251,166,72" },
+  { u: "https://88.hy88.de/", t: "短视频剪辑速成", ago: "2026/6/22", free: 1, c: "244,114,182" },
 ];
 
 /* ── 三栏（无对应元素的页面自动跳过） ── */
 const pickList = $("#pickList");
 if (pickList) pickList.innerHTML = PICKS.map(p => `
-  <a class="row pk" href="https://88.hy88.de/" style="--c:${p.c}">
+  <a class="row pk" href="${esc(p.u)}" style="--c:${p.c}">
     <span class="pk-ic real${p.dk ? " dk" : ""}"><img src="assets/img/${p.lg}" alt="" loading="lazy"></span>
     <span class="nm"><b>${esc(p.t)}</b><i>${esc(p.d)}</i></span>
     <span class="pk-tag">${esc(p.tag)}</span>
@@ -159,7 +160,7 @@ if (pickList) pickList.innerHTML = PICKS.map(p => `
 
 const newsList = $("#newsList");
 if (newsList) newsList.innerHTML = NEWS.map(v => `
-  <a class="row" href="https://88.hy88.de/">
+  <a class="row" href="${esc(v.u)}">
     <span class="nw-th" style="--c:${v.c}"></span>
     <span class="nm"><b>${esc(v.t)}</b><i>${esc(v.ago)} · ${v.free ? "免费" : "会员"}</i></span>
   </a>`).join("");
