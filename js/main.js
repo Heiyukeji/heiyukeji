@@ -132,35 +132,146 @@ const LINKS = [
     ["Spotify", 140, "https://www.spotify.com/"], ["Twitch", 265, "https://www.twitch.tv/"]] },
 ];
 
-/* 站长推荐（lg = 真实产品 logo；dk = 深色底 logo；u = 该条目的跳转链接，每条独立修改） */
-const PICKS = [
-  { u: "https://88.hy88.de/", t: "开源面板下载", d: "多台服务器统一管理，图形化操作，装好就能用。", tag: "站长自研", c: "157,124,255", lg: "real/tms-app.png" },
-  { u: "https://88.hy88.de/", t: "AI 助手注册", d: "个人助理，能写能画；新用户注册即送体验额度。", tag: "送体验额度", c: "244,114,182", lg: "links/meta.svg" },
-  { u: "https://88.hy88.de/", t: "视频复刻工具", d: "上传素材自动拆解分镜，一键生成同款短视频。", tag: "免费体验", c: "56,189,248", lg: "real/jinggan.svg", dk: 1 },
-  { u: "https://88.hy88.de/", t: "效率工具聚合", d: "常用小工具打包成一个启动器，付费版可商用。", tag: "付费 · 可商用", c: "255,196,92", lg: "real/usb.svg", dk: 1 },
-];
+/* 站长推荐：TMS 一张大卡（内容取自三月空间 tms-download 页），6 组功能标签切换 */
+const TMS = {
+  href: "tms-download.html", vid: "838927a8-297f-458b-80ff-1bafcd10a7fb", logo: "real/tms-app.png",
+  groups: [
+    ["搭节点", [
+      ["装面板", "填 VPS 的 IP 和密码，自动装好 TMS / 3X-UI / S-UI，三个能装同一台"],
+      ["全协议", "一次建好 6 种常用协议，3X-UI 还能加 XHTTP；端口不通自动换"],
+      ["落地中转", "住宅 IP、机场节点都能做落地，转发机做中转，可开 IPv6"],
+      ["BBR", "新搭的服务器自动开 BBR 加速，老机器也能一键开"],
+    ]],
+    ["管车友", [
+      ["开账号", "账号密码自动随机，订阅能出二维码，还能给车友单独起节点名"],
+      ["续费", "改流量、改到期、改限速，不用删了重建"],
+      ["看用量", "谁在用、每条协议跑了多少流量，一眼看清"],
+      ["多面板", "能绑多台面板，侧栏一点就切换"],
+    ]],
+    ["防封救急", [
+      ["测被封", "判断 IP 在国内是不是被封了，还能一键去 ping.pe 复核"],
+      ["换条路", "端口转发让原节点换路接通；转发机能改连面板域名防封"],
+      ["一键换机", "3X-UI / S-UI 换到新机器，不用从头再搭"],
+      ["体检", "协议、中转出问题点一键体检，看不懂就让 AI 帮你看"],
+    ]],
+    ["连节点", [
+      ["免费节点", "不登录也能连，打开就自动测速"],
+      ["自己的", "登录就能连自己搭的节点，不用再开通"],
+      ["两种连法", "全局代理，或者只开本地端口给别的软件用"],
+    ]],
+    ["本机工具", [
+      ["内存管家", "看清每个进程在干什么、占了多少"],
+      ["磁盘清理", "可以勾选着清，每一项都写了是什么"],
+      ["端口猎手", "本机端口被谁占了，一查就知道"],
+      ["问 AI", "看不懂的文件夹、进程、报错，都能让 AI 解释"],
+    ]],
+    ["AI 软件", [
+      ["数字人口播", "三月造片：出图、改图、做口播视频，都在自己电脑上生成"],
+      ["视频翻译", "SanYue Studio：去字幕、识别台词、翻译、克隆声配音"],
+      ["视频复刻", "镜感，从 TMS 里直接打开"],
+      ["先测配置", "大软件安装前先查显卡、内存，不够会告诉你缺什么"],
+    ]],
+  ],
+};
+(() => { const st = document.createElement("style"); st.textContent = `
+  .tmsk{--c:157,124,255;position:relative;display:flex;flex-direction:column;gap:14px;padding:18px;border-radius:14px;overflow:hidden;
+    background:radial-gradient(120% 90% at 100% 0,rgba(var(--c),.22),transparent 60%),rgba(255,255,255,.02);box-shadow:inset 0 0 0 1px rgba(var(--c),.32)}
+  .tmsk-h{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}
+  .tmsk-ic{flex:none;width:58px;height:58px;border-radius:15px;display:grid;place-items:center;background:#f4f6fb;box-shadow:0 0 0 1px rgba(var(--c),.5),0 10px 26px -10px rgba(var(--c),.9)}
+  .tmsk-ic img{width:72%;height:72%;object-fit:contain}
+  .tmsk-h b{display:block;font-size:20px;line-height:1.3;color:var(--ink,#E9EDFA)}
+  .tmsk-h small{display:block;margin-top:3px;font-size:12.5px;color:rgb(var(--c))}
+  .tmsk-lead{margin:0;font-size:14px;line-height:1.7;color:var(--ink-2,#B7C0DC)}
+  .tmsk-up{display:inline-flex;align-items:center;gap:7px;align-self:flex-start;font-size:12px;color:var(--ink-2,#B7C0DC);padding:4px 10px 4px 8px;border-radius:999px;background:rgba(52,211,153,.08);box-shadow:inset 0 0 0 1px rgba(52,211,153,.28)}
+  .tmsk-up i{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 0 0 rgba(52,211,153,.7);animation:tmskPulse 2s infinite}
+  @keyframes tmskPulse{70%{box-shadow:0 0 0 7px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+  .tmsk-star{--g:240,180,60;position:relative;display:flex;flex-direction:column;gap:6px;padding:14px 16px;border-radius:12px;text-decoration:none;color:inherit;isolation:isolate;
+    background:linear-gradient(135deg,rgba(var(--g),.17),rgba(var(--c),.10) 55%,rgba(10,14,32,.35));transition:box-shadow .25s,transform .25s}
+  .tmsk-star::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;padding:1.2px;pointer-events:none;
+    background:linear-gradient(110deg,rgba(var(--g),.3) 25%,#ffe7a8 42%,rgba(var(--g),.3) 58%);background-size:260% 100%;animation:tmskEdge 3.4s linear infinite;
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+  @keyframes tmskEdge{from{background-position:130% 0}to{background-position:-130% 0}}
+  .tmsk-star:hover{transform:translateY(-1px);box-shadow:0 14px 34px -16px rgba(var(--g),.85)}
+  .tmsk-star-tg{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;color:rgb(var(--g));letter-spacing:.02em}
+  .tmsk-star-tg i{width:7px;height:7px;border-radius:50%;background:rgb(var(--g));animation:tmskGold 2s infinite}
+  @keyframes tmskGold{0%{box-shadow:0 0 0 0 rgba(240,180,60,.75)}70%{box-shadow:0 0 0 7px rgba(240,180,60,0)}100%{box-shadow:0 0 0 0 rgba(240,180,60,0)}}
+  .tmsk-star b{font-size:15.5px;line-height:1.4;color:#fff}
+  .tmsk-star-d{font-size:13px;line-height:1.65;color:var(--ink-2,#B7C0DC)}
+  .tmsk-star-f{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-top:2px}
+  .tmsk-star-f em{font-style:normal;font-size:12px;color:var(--mute,#97A3C5)}
+  .tmsk-star-go{flex:none;font-size:13px;font-weight:700;color:#1a1204;background:rgb(var(--g));padding:6px 13px;border-radius:8px}
+  .tmsk-star:hover .tmsk-star-go{filter:brightness(1.08)}
+  .tmsk-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .tmsk-tabs button{position:relative;overflow:hidden;height:34px;padding:0 6px;border:0;border-radius:9px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;
+    color:var(--mute,#97A3C5);background:rgba(255,255,255,.035);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);transition:color .2s,background .2s,box-shadow .2s}
+  .tmsk-tabs button:hover{color:#fff}
+  .tmsk-tabs button[aria-selected="true"]{color:#fff;background:rgba(var(--c),.2);box-shadow:inset 0 0 0 1px rgba(var(--c),.6),0 0 18px -8px rgba(var(--c),.9)}
+  .tmsk-tabs button i{position:absolute;left:0;bottom:0;height:2px;width:100%;background:rgb(var(--c));transform-origin:left;transform:scaleX(0)}
+  .tmsk.auto .tmsk-tabs button[aria-selected="true"] i{animation:tmskBar var(--t) linear forwards}
+  @keyframes tmskBar{to{transform:scaleX(1)}}
+  .tmsk-tabs button:focus-visible{outline:2px solid rgb(var(--c));outline-offset:2px}
+  .tmsk ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;align-content:start;min-height:var(--mh,0)}
+  .tmsk li{display:grid;grid-template-columns:5.6em 1fr;gap:10px;align-items:baseline;font-size:13px;line-height:1.55;color:var(--mute,#97A3C5);animation:tmskIn .45s cubic-bezier(.2,.75,.25,1) both;animation-delay:calc(var(--i) * 60ms)}
+  .tmsk li b{font-size:12.5px;font-weight:600;color:rgb(var(--c));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  @keyframes tmskIn{from{opacity:0;transform:translateX(10px)}}
+  .tmsk-act{display:flex;flex-wrap:wrap;gap:10px;margin-top:2px}
+  .tmsk-act a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 16px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none}
+  .tmsk-go{flex:1 1 auto;background:rgb(var(--c));color:#0b0f24}.tmsk-go:hover{filter:brightness(1.1)}
+  .tmsk-vid{color:rgb(var(--c));box-shadow:inset 0 0 0 1px rgba(var(--c),.45)}.tmsk-vid:hover{background:rgba(var(--c),.12)}`;
+  document.head.appendChild(st); })();
 
-/* 最新上架（u = 该条目的跳转链接，每条独立修改） */
 const NEWS = [
-  { u: "https://88.hy88.de/", t: "云服务器选购指南", ago: "6 天前", free: 1, c: "56,189,248" },
-  { u: "https://88.hy88.de/", t: "AI 绘画从零入门", ago: "8 天前", free: 1, c: "157,124,255" },
-  { u: "https://88.hy88.de/", t: "个人博客搭建全流程", ago: "2026/9/2", free: 1, c: "52,211,153" },
-  { u: "https://88.hy88.de/", t: "笔记软件横评", ago: "2026/7/1", free: 0, c: "251,166,72" },
-  { u: "https://88.hy88.de/", t: "短视频剪辑速成", ago: "2026/6/22", free: 1, c: "244,114,182" },
+  { t: "云服务器选购指南", ago: "6 天前", free: 1, c: "56,189,248" },
+  { t: "AI 绘画从零入门", ago: "8 天前", free: 1, c: "157,124,255" },
+  { t: "个人博客搭建全流程", ago: "2026/9/2", free: 1, c: "52,211,153" },
+  { t: "笔记软件横评", ago: "2026/7/1", free: 0, c: "251,166,72" },
+  { t: "短视频剪辑速成", ago: "2026/6/22", free: 1, c: "244,114,182" },
 ];
 
 /* ── 三栏（无对应元素的页面自动跳过） ── */
 const pickList = $("#pickList");
-if (pickList) pickList.innerHTML = PICKS.map(p => `
-  <a class="row pk" href="${esc(p.u)}" style="--c:${p.c}">
-    <span class="pk-ic real${p.dk ? " dk" : ""}"><img src="assets/img/${p.lg}" alt="" loading="lazy"></span>
-    <span class="nm"><b>${esc(p.t)}</b><i>${esc(p.d)}</i></span>
-    <span class="pk-tag">${esc(p.tag)}</span>
-  </a>`).join("");
+if (pickList) {
+  pickList.innerHTML = `
+    <div class="tmsk">
+      <a class="tmsk-h" href="${TMS.href}"><span class="tmsk-ic"><img src="assets/img/${TMS.logo}" alt=""></span>
+        <span><b>TMS 节点指挥舱</b><small>站长自研 · 免费 · Windows 客户端</small></span></a>
+      <p class="tmsk-lead">不用敲命令。搭节点、管车友、防封救急都在一个客户端里点，还带一组本机小工具和 AI 软件。</p>
+      <span class="tmsk-up"><i></i>两个半月更新了 55 个版本，站长一直在维护</span>
+      <a class="tmsk-star" href="https://tms.zhanzhangsanyue.com/" target="_blank" rel="noopener">
+        <span class="tmsk-star-tg"><i></i>新上线 · 本地数字人</span>
+        <b>三月造片：数字人口播，自己电脑出</b>
+        <span class="tmsk-star-d">出图、改图、做数字人口播视频，都在自己电脑上生成，不按次收费。装在 TMS 里，注册登录就有一张免费体验券。</span>
+        <span class="tmsk-star-f"><em>需要 NVIDIA 显卡，显存 16G 以上</em><span class="tmsk-star-go">去官网看看</span></span>
+      </a>
+      <div class="tmsk-tabs" role="tablist">${TMS.groups.map(([t], i) => `<button type="button" role="tab" data-g="${i}" aria-selected="${!i}">${esc(t)}<i></i></button>`).join("")}</div>
+      <ul role="tabpanel"></ul>
+      <div class="tmsk-act"><a class="tmsk-go" href="${TMS.href}">了解并下载</a><a class="tmsk-vid" href="https://3yuedaohang.com/play-v8.html?v=${TMS.vid}" target="_blank" rel="noopener">▶ 看视频教程</a></div>
+    </div>`;
+  tmsTabs();
+}
+
+function tmsTabs() {
+  const box = $(".tmsk"), ul = box && box.querySelector("ul"); if (!ul) return;
+  const T = 5000, tabs = [...box.querySelectorAll("[data-g]")];
+  let cur = 0, timer = 0, manual = false, hover = false;
+  box.style.setProperty("--t", T + "ms");
+  const show = i => {
+    cur = i; tabs.forEach((b, j) => b.setAttribute("aria-selected", j === i));
+    ul.innerHTML = TMS.groups[i][1].map(([k, v], j) => `<li style="--i:${j}"><b>${esc(k)}</b><span>${esc(v)}</span></li>`).join("");
+    const bar = tabs[i].querySelector("i"); bar.style.animation = "none"; void bar.offsetWidth; bar.style.animation = "";
+  };
+  const run = () => { clearTimeout(timer); box.classList.toggle("auto", !manual && !hover); if (!manual && !hover) timer = setTimeout(() => { show((cur + 1) % tabs.length); run(); }, T); };
+  const fit = () => { const c = cur; let m = 0; ul.style.setProperty("--mh", "0px"); TMS.groups.forEach((g, i) => { show(i); m = Math.max(m, ul.offsetHeight); }); ul.style.setProperty("--mh", m + "px"); show(c); };
+  fit(); run();
+  box.querySelector(".tmsk-tabs").addEventListener("click", e => { const b = e.target.closest("[data-g]"); if (!b) return; manual = true; show(+b.dataset.g); run(); });
+  box.addEventListener("mouseenter", () => { hover = true; run(); });
+  box.addEventListener("mouseleave", () => { hover = false; if (!manual) { show(cur); run(); } });
+  let rz = 0; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(fit, 150); });
+}
 
 const newsList = $("#newsList");
 if (newsList) newsList.innerHTML = NEWS.map(v => `
-  <a class="row" href="${esc(v.u)}">
+  <a class="row" href="#">
     <span class="nw-th" style="--c:${v.c}"></span>
     <span class="nm"><b>${esc(v.t)}</b><i>${esc(v.ago)} · ${v.free ? "免费" : "会员"}</i></span>
   </a>`).join("");
