@@ -185,22 +185,6 @@ const TMS = {
   .tmsk-up{display:inline-flex;align-items:center;gap:7px;align-self:flex-start;font-size:12px;color:var(--ink-2,#B7C0DC);padding:4px 10px 4px 8px;border-radius:999px;background:rgba(52,211,153,.08);box-shadow:inset 0 0 0 1px rgba(52,211,153,.28)}
   .tmsk-up i{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 0 0 rgba(52,211,153,.7);animation:tmskPulse 2s infinite}
   @keyframes tmskPulse{70%{box-shadow:0 0 0 7px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
-  .tmsk-star{--g:240,180,60;position:relative;display:flex;flex-direction:column;gap:6px;padding:14px 16px;border-radius:12px;text-decoration:none;color:inherit;isolation:isolate;
-    background:linear-gradient(135deg,rgba(var(--g),.17),rgba(var(--c),.10) 55%,rgba(10,14,32,.35));transition:box-shadow .25s,transform .25s}
-  .tmsk-star::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;padding:1.2px;pointer-events:none;
-    background:linear-gradient(110deg,rgba(var(--g),.3) 25%,#ffe7a8 42%,rgba(var(--g),.3) 58%);background-size:260% 100%;animation:tmskEdge 3.4s linear infinite;
-    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
-  @keyframes tmskEdge{from{background-position:130% 0}to{background-position:-130% 0}}
-  .tmsk-star:hover{transform:translateY(-1px);box-shadow:0 14px 34px -16px rgba(var(--g),.85)}
-  .tmsk-star-tg{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;color:rgb(var(--g));letter-spacing:.02em}
-  .tmsk-star-tg i{width:7px;height:7px;border-radius:50%;background:rgb(var(--g));animation:tmskGold 2s infinite}
-  @keyframes tmskGold{0%{box-shadow:0 0 0 0 rgba(240,180,60,.75)}70%{box-shadow:0 0 0 7px rgba(240,180,60,0)}100%{box-shadow:0 0 0 0 rgba(240,180,60,0)}}
-  .tmsk-star b{font-size:15.5px;line-height:1.4;color:#fff}
-  .tmsk-star-d{font-size:13px;line-height:1.65;color:var(--ink-2,#B7C0DC)}
-  .tmsk-star-f{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-top:2px}
-  .tmsk-star-f em{font-style:normal;font-size:12px;color:var(--mute,#97A3C5)}
-  .tmsk-star-go{flex:none;font-size:13px;font-weight:700;color:#1a1204;background:rgb(var(--g));padding:6px 13px;border-radius:8px}
-  .tmsk-star:hover .tmsk-star-go{filter:brightness(1.08)}
   .tmsk-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
   .tmsk-tabs button{position:relative;overflow:hidden;height:34px;padding:0 6px;border:0;border-radius:9px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;
     color:var(--mute,#97A3C5);background:rgba(255,255,255,.035);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);transition:color .2s,background .2s,box-shadow .2s}
@@ -237,11 +221,9 @@ if (pickList) {
         <span><b>TMS 节点指挥舱</b><small>站长自研 · 免费 · Windows 客户端</small></span></a>
       <p class="tmsk-lead">不用敲命令。搭节点、管车友、防封救急都在一个客户端里点，还带一组本机小工具和 AI 软件。</p>
       <span class="tmsk-up"><i></i>两个半月更新了 55 个版本，站长一直在维护</span>
-   
-      </a>
       <div class="tmsk-tabs" role="tablist">${TMS.groups.map(([t], i) => `<button type="button" role="tab" data-g="${i}" aria-selected="${!i}">${esc(t)}<i></i></button>`).join("")}</div>
       <ul role="tabpanel"></ul>
-      <div class="tmsk-act"><a class="tmsk-go" href="${TMS.href}">了解并下载</a><a class="tmsk-vid" href="https://github.com/Heiyukeji/Tms/releases" target="_blank" rel="noopener">▶ 看视频教程</a></div>
+      <div class="tmsk-act"><a class="tmsk-go" href="${TMS.href}">了解并下载</a><a class="tmsk-vid" href="https://3yuedaohang.com/play-v8.html?v=${TMS.vid}" target="_blank" rel="noopener">▶ 看视频教程</a></div>
     </div>`;
   tmsTabs();
 }
